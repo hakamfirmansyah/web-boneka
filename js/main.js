@@ -1,15 +1,30 @@
 /* js/main.js */
 
-// Typing Animation Effect
+// Typing Animation Effect with Loop
 const typingText = document.getElementById('typing-text');
 const text = 'Boneka Rajut Handmade Penuh Cinta';
 let index = 0;
+let isDeleting = false;
 
 function typeWriter() {
-    if (index < text.length) {
+    if (!isDeleting && index < text.length) {
+        // Typing forward
         typingText.textContent += text.charAt(index);
         index++;
         setTimeout(typeWriter, 100);
+    } else if (!isDeleting && index === text.length) {
+        // Wait before deleting
+        isDeleting = true;
+        setTimeout(typeWriter, 2000);
+    } else if (isDeleting && index > 0) {
+        // Deleting backward
+        typingText.textContent = text.substring(0, index - 1);
+        index--;
+        setTimeout(typeWriter, 50);
+    } else if (isDeleting && index === 0) {
+        // Wait before typing again
+        isDeleting = false;
+        setTimeout(typeWriter, 500);
     }
 }
 
