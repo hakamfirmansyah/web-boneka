@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAr's Crochet</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FFF7ED',
+                        coklatMuda: '#D6A77A',
+                        coklatTua: '#8B5E3C',
+                        putih: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-poppins bg-cream text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-coklatTua">
+                        <i class="fa-solid fa-ball-pile text-coklatMuda mr-2"></i>RAr's<span class="text-coklatMuda"> Crochet</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Home</a>
+                    <a href="#produk" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Produk</a>
+                    <a href="#galeri" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Galeri</a>
+                    <a href="#tentang" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Tentang Kami</a>
+                    <a href="#faq" class="text-coklatTua hover:text-coklatMuda font-semibold transition">FAQ</a>
+                    <a href="#kontak" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Kontak</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-putih shadow-lg absolute w-full">
+            <a href="#home" class="block px-4 py-3 text-coklatTua border-b border-cream">Home</a>
+            <a href="#produk" class="block px-4 py-3 text-coklatTua border-b border-cream">Produk</a>
+            <a href="#galeri" class="block px-4 py-3 text-coklatTua border-b border-cream">Galeri</a>
+            <a href="#tentang" class="block px-4 py-3 text-coklatTua border-b border-cream">Tentang Kami</a>
+            <a href="#faq" class="block px-4 py-3 text-coklatTua border-b border-cream">FAQ</a>
+            <a href="#kontak" class="block px-4 py-3 text-coklatTua">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-20 md:pt-40 md:pb-32 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-coklatTua leading-tight mb-4">
+                    Boneka Rajut Handmade Penuh Cinta
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Boneka rajut berkualitas tinggi yang dibuat dengan detail dan penuh perhatian. Siap menjadi teman istimewa atau hadiah berkesan untuk orang terkasih.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#produk" class="bg-coklatTua text-putih px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg">
+                        Lihat Produk
+                    </a>
+                    <a href="https://wa.me/6287781818202?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="border-2 border-coklatTua text-coklatTua px-8 py-3 rounded-full font-semibold hover:bg-coklatTua hover:text-putih transition">
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center md:text-left">
+                    <div>
+                        <i class="fas fa-hand-holding-heart text-coklatMuda text-2xl mb-2"></i>
+                        <h3 class="font-semibold text-sm">Handmade</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-star text-coklatMuda text-2xl mb-2"></i>
+                        <h3 class="font-semibold text-sm">Bahan Berkualitas</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-box text-coklatMuda text-2xl mb-2"></i>
+                        <h3 class="font-semibold text-sm">Siap Kirim</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-gift text-coklatMuda text-2xl mb-2"></i>
+                        <h3 class="font-semibold text-sm">Cocok untuk Hadiah</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 md:pl-10">
+                <img src="https://images.unsplash.com/photo-1627693685101-687bf0eb1222?auto=format&fit=crop&q=80&w=800" alt="Boneka Rajut" class="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="produk" class="py-20 bg-putih">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-coklatTua mb-4">Produk Pilihan Kami</h2>
+                <p class="text-gray-600">Pilih kit favoritmu dan mulai merajut sekarang</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1686151271777-12efa81f65e0?auto=format&fit=crop&q=80&w=500" alt="Boneka Beruang" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-coklatTua">Boneka Beruang DIY</h3>
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Kit lengkap rajut pemula</p>
+                            <p class="text-lg font-bold text-coklatTua mb-6">Rp 89.000</p>
+                        </div>
+                        <button onclick="openDetailModal('beruang')" class="w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1682954013913-25fe41e180c0?auto=format&fit=crop&q=80&w=500" alt="Boneka Kelinci" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-coklatTua">Boneka Kelinci DIY</h3>
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Cocok untuk tingkat menengah</p>
+                            <p class="text-lg font-bold text-coklatTua mb-6">Rp 95.000</p>
+                        </div>
+                        <button onclick="openDetailModal('kelinci')" class="w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1629019317873-3f603b269723?auto=format&fit=crop&q=80&w=500" alt="Gantungan Kunci Kucing" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-coklatTua">Gantungan Kunci Kucing</h3>
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Proyek singkat dan menyenangkan</p>
+                            <p class="text-lg font-bold text-coklatTua mb-6">Rp 45.000</p>
+                        </div>
+                        <button onclick="openDetailModal('kucing')" class="w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Produk -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-putih rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="flex flex-col md:flex-row" id="modalContent">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-coklatTua mb-4">Galeri Kreasi</h2>
+                <p class="text-gray-600">Inspirasi hasil karya dari pelanggan kami</p>
+            </div>
+
+            <!-- Kategori -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button class="bg-coklatTua text-putih px-6 py-2 rounded-full font-semibold">Semua</button>
+                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Hewan</button>
+                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Karakter</button>
+                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Mini Doll</button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1627693685101-687bf0eb1222?auto=format&fit=crop&q=80&w=400" alt="Galeri 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1629019317873-3f603b269723?auto=format&fit=crop&q=80&w=400" alt="Galeri 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1686151271777-12efa81f65e0?auto=format&fit=crop&q=80&w=400" alt="Galeri 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1682954013913-25fe41e180c0?auto=format&fit=crop&q=80&w=400" alt="Galeri 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami & Testimoni Section -->
+    <section id="tentang" class="py-20 bg-putih">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-coklatTua mb-8 border-b-2 border-coklatMuda inline-block pb-2">Tentang Kami</h2>
+            <p class="max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed mb-20 whitespace-pre-line">
+                RAr's Crochet hadir untuk menghadirkan boneka rajut handmade berkualitas tinggi yang dibuat dengan penuh cinta dan perhatian pada setiap detailnya. Setiap boneka kami rajut dengan tangan menggunakan bahan pilihan terbaik.
+
+                Kami percaya bahwa setiap boneka rajut memiliki karakter dan kehangatan tersendiri, cocok menjadi teman setia atau hadiah spesial yang berkesan.
+            </p>
+
+            <h2 class="text-3xl font-bold text-coklatTua mb-12">Apa Kata Mereka</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- Testimonial 1 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-sm relative">
+                    <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Bonekanya lucu banget dan rapih! Detail rajutannya halus dan isian padat. Anak saya langsung suka!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold text-coklatTua">Ayu</h4>
+                            <p class="text-sm text-gray-500">Bandung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-sm relative">
+                    <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Kualitas rajutannya bagus banget! Bahan lembut dan warnanya cantik. Cocok banget buat kado."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">D</div>
+                        <div>
+                            <h4 class="font-bold text-coklatTua">Dewi</h4>
+                            <p class="text-sm text-gray-500">Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-sm relative">
+                    <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Boneka rajutnya menggemaskan! Packagingnya rapi dan pengiriman cepat. Puas banget belanja di sini."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">R</div>
+                        <div>
+                            <h4 class="font-bold text-coklatTua">Rina</h4>
+                            <p class="text-sm text-gray-500">Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-cream">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-coklatTua mb-4">FAQ</h2>
+                <p class="text-gray-600">Pertanyaan yang sering diajukan</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        Apakah cocok untuk pemula?
+                        <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-4 hidden text-gray-600 faq-content">
+                        Ya, setiap kit sudah dilengkapi dengan panduan lengkap langkah demi langkah, baik dalam bentuk buku cetak maupun akses ke video tutorial. Cocok bagi Anda yang belum pernah merajut sama sekali.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        Apakah alat rajut sudah termasuk?
+                        <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-4 hidden text-gray-600 faq-content">
+                        Ya, di dalam setiap kit sudah tersedia hakpen (jarum rajut), jarum jahit/tapestry, penanda rajutan, dan perlengkapan dasar lainnya. Anda siap merajut begitu paket tiba.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        Berapa lama pengerjaan satu boneka?
+                        <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-4 hidden text-gray-600 faq-content">
+                        Waktu pengerjaan bervariasi bergantung tingkat kesulitan dan pengalaman. Rata-rata membutuhkan waktu sekitar 4–8 jam untuk pemula.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-20 bg-putih">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-coklatTua mb-6">Hubungi Kami</h2>
+                <p class="text-gray-600 mb-8">Punya pertanyaan seputar produk kami? Jangan ragu untuk menghubungi kami melalui kotak masuk atau media sosial kami.</p>
+
+                <div class="flex flex-col items-center space-y-4 mb-8">
+                    <a href="https://wa.me/6287781818202?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="flex items-center text-coklatTua text-left w-48 hover:text-coklatMuda transition">
+                        <i class="fab fa-whatsapp text-2xl w-8 text-green-500"></i>
+                        <span class="font-medium">0877 8181 8202</span>
+                    </a>
+                    <div class="flex items-center text-coklatTua text-left w-48">
+                        <i class="fab fa-instagram text-2xl w-8 text-pink-500"></i>
+                        <span class="font-medium">@rars.crochet</span>
+                    </div>
+                    <div class="flex items-center text-coklatTua text-left w-48">
+                        <i class="far fa-envelope text-2xl w-8 text-blue-500"></i>
+                        <span class="font-medium">halo@rarscrochet.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coklatTua text-putih py-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-bold mb-4 md:mb-0">
+                <i class="fa-solid fa-ball-pile mr-2"></i>RAr's<span class="text-coklatMuda"> Crochet</span>
+            </div>
+            <div class="space-x-4 mb-4 md:mb-0">
+                <a href="#" class="hover:text-coklatMuda transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-coklatMuda transition"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-coklatMuda transition"><i class="fab fa-tiktok text-xl"></i></a>
+            </div>
+            <div class="text-sm text-gray-300">
+                &copy; 2026 RAr's Crochet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script External -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+/* css/style.css */
+/* Animasi halus untuk interaksi */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Transisi nav yang di scroll */
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Menyembunyikan scrollbar bawaan untuk area modal */
+#productModal::-webkit-scrollbar {
+    width: 8px;
+}
+#productModal::-webkit-scrollbar-thumb {
+    background: #D6A77A;
+    border-radius: 4px;
+}

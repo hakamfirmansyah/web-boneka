@@ -1,0 +1,229 @@
+RDP Website Boneka Rajut DIY (Frontend Only)
+1. Gambaran Produk
+
+Website Boneka Rajut DIY adalah platform katalog dan promosi yang menampilkan berbagai produk kit boneka rajut buatan tangan. Website ini bersifat statis (frontend only) dan bertujuan memberikan informasi produk, inspirasi kreasi, serta memudahkan pelanggan melihat detail produk sebelum melakukan pembelian melalui marketplace atau kontak yang tersedia.
+
+2. Tujuan Website
+Menampilkan katalog produk boneka rajut DIY.
+Memperkenalkan brand kepada pengunjung.
+Menampilkan detail produk secara menarik.
+Menyediakan informasi harga dan spesifikasi produk.
+Mengarahkan pelanggan ke marketplace atau kontak penjual.
+Meningkatkan kepercayaan pelanggan melalui testimoni.
+3. Target Pengguna
+Primer
+Pecinta kerajinan tangan.
+Pemula yang ingin belajar merajut.
+Orang tua yang mencari aktivitas kreatif untuk anak.
+Sekunder
+Komunitas rajut.
+Pengrajin handmade.
+Pembeli hadiah unik dan personal.
+4. Struktur Halaman
+4.1 Beranda (Home)
+Hero Section
+
+Menampilkan:
+
+Judul utama:
+
+"Buat Boneka Rajut Impianmu Sendiri"
+
+Subjudul:
+
+"Kit DIY lengkap untuk pemula hingga profesional."
+
+Tombol CTA:
+Lihat Produk
+Hubungi Kami
+Featured Products
+
+Menampilkan 3–6 produk unggulan.
+
+Keunggulan Produk
+Mudah Dipelajari
+Bahan Berkualitas
+Panduan Lengkap
+Cocok untuk Pemula
+4.2 Halaman Produk
+
+Menampilkan daftar produk dalam bentuk card.
+
+Setiap card berisi:
+
+Gambar produk
+Nama produk
+Harga
+Rating
+Tombol Detail
+
+Contoh:
+
+Boneka Beruang DIY
+
+Rp89.000
+★★★★★
+Kit lengkap rajut pemula
+4.3 Detail Produk
+
+Informasi yang ditampilkan:
+
+Nama Produk
+
+Boneka Kelinci Rajut DIY
+
+Harga
+
+Rp95.000
+
+Deskripsi
+
+Kit rajut lengkap untuk membuat boneka kelinci lucu dengan panduan langkah demi langkah yang mudah dipahami.
+
+Isi Paket
+Benang rajut premium
+Hakpen
+Dakron
+Mata boneka
+Jarum jahit
+Buku panduan
+Tombol
+Beli Sekarang
+Hubungi Penjual
+4.4 Galeri
+
+Menampilkan hasil jadi dari berbagai boneka rajut.
+
+Kategori:
+
+Hewan
+Karakter
+Mini Doll
+Custom
+
+Layout:
+
+Grid responsif
+Lightbox saat gambar diklik
+4.5 Tentang Kami
+
+Isi:
+
+Boneka Rajut DIY hadir untuk membantu siapa saja menikmati keseruan membuat boneka rajut handmade. Kami menyediakan kit lengkap berkualitas yang dirancang agar mudah digunakan oleh pemula maupun pengrajin berpengalaman.
+
+4.6 Testimoni
+
+Contoh:
+
+Ayu – Bandung
+
+"Panduan sangat mudah diikuti, hasil bonekanya lucu sekali."
+
+Dewi – Jakarta
+
+"Bahan lengkap dan kualitas benangnya bagus."
+
+Rina – Surabaya
+
+"Cocok untuk hadiah dan belajar merajut."
+
+4.7 FAQ
+
+Apakah cocok untuk pemula?
+Ya, setiap kit dilengkapi panduan lengkap.
+
+Apakah alat rajut sudah termasuk?
+Ya, hakpen dan perlengkapan dasar sudah tersedia.
+
+Berapa lama pengerjaan satu boneka?
+Sekitar 4–8 jam tergantung tingkat kesulitan.
+
+4.8 Kontak
+
+Informasi:
+
+WhatsApp
+Instagram
+Email
+
+Form kontak frontend:
+
+Nama
+Email
+Pesan
+Tombol Kirim
+
+Catatan: karena tanpa backend, form hanya untuk tampilan atau menggunakan layanan pihak ketiga seperti Formspree.
+
+5. Navigasi
+
+Navbar:
+
+Home
+Produk
+Galeri
+Tentang Kami
+FAQ
+Kontak
+
+Sticky navbar saat scroll.
+
+6. Desain UI
+Warna
+Cream: #FFF7ED
+Coklat Muda: #D6A77A
+Coklat Tua: #8B5E3C
+Putih: #FFFFFF
+Font
+Heading: Poppins Bold
+Body: Poppins Regular
+Gaya Desain
+Clean
+Handmade
+Cute
+Friendly
+Mobile First
+7. Komponen Frontend
+Navbar
+Hero Banner
+Product Card
+Product Detail Modal
+Gallery Grid
+Testimonial Slider
+FAQ Accordion
+Contact Form
+Footer
+8. Responsive Design
+
+Breakpoint:
+
+Mobile: <768px
+Tablet: 768px–1024px
+Desktop: >1024px
+
+Fitur:
+
+Hamburger menu
+Responsive grid
+Responsive image
+9. Teknologi Frontend
+HTML5
+CSS3
+JavaScript
+Bootstrap 5 atau Tailwind CSS
+
+Tanpa:
+
+Backend
+Database
+Login User
+Dashboard Admin
+10. Deliverable
+Home Page
+Product Page
+Product Detail
+Gallery Page
+About Page
+FAQ Page
+Contact Page
+Responsive Mobile & Desktop

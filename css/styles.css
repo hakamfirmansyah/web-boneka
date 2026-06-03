@@ -1,0 +1,57 @@
+/* Google Font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF7ED; /* Cream background */
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF7ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6A77A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5E3C;
+}
+
+/* Smooth transition classes */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom styles for Hero pattern */
+.hero-pattern {
+  background-size: 20px 20px;
+  background-image:
+    radial-gradient(circle, #D6A77A 1px, transparent 1px),
+    radial-gradient(circle, #D6A77A 1px, transparent 1px);
+  background-position: 0 0, 10px 10px;
+  opacity: 0.08;
+}
+
+/* Glassmorphism utility */
+.glass-nav {
+  background: rgba(255, 247, 237, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Active Nav Links styling toggled via JS */
+.nav-active {
+  color: #8B5E3C;
+  font-weight: 700;
+  border-bottom: 2px solid #8B5E3C;
+}
+
+/* Card Zoom effect */
+.card-zoom:hover .card-zoom-image {
+  transform: scale(1.05);
+}
