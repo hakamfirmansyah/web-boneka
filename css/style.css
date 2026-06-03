@@ -21,35 +21,26 @@ body {
     border-radius: 4px;
 }
 
-/* Neon Text Effect */
-.neon-text {
-    color: #fff;
-    text-shadow:
-        0 0 10px #00ff88,
-        0 0 20px #00ff88,
-        0 0 30px #00ff88,
-        0 0 40px #00ff88,
-        0 0 70px #00ff88,
-        0 0 80px #00ff88,
-        0 0 100px #00ff88,
-        0 0 150px #00ff88;
-    animation: neon-flicker 1.5s infinite alternate;
+/* Colorful Text Effect */
+.colorful-text {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D, #A8E6CF, #FF8B94);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+    font-weight: 700;
 }
 
-@keyframes neon-flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow:
-            0 0 10px #00ff88,
-            0 0 20px #00ff88,
-            0 0 30px #00ff88,
-            0 0 40px #00ff88,
-            0 0 70px #00ff88,
-            0 0 80px #00ff88,
-            0 0 100px #00ff88,
-            0 0 150px #00ff88;
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
     }
-    20%, 24%, 55% {
-        text-shadow: none;
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -57,6 +48,11 @@ body {
 #typing-text::after {
     content: '|';
     animation: blink 0.7s infinite;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D, #A8E6CF, #FF8B94);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 @keyframes blink {
