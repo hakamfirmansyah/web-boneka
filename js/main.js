@@ -1,4 +1,23 @@
 /* js/main.js */
+
+// Typing Animation Effect
+const typingText = document.getElementById('typing-text');
+const text = 'Boneka Rajut Handmade Penuh Cinta';
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+    }
+}
+
+// Start typing animation when page loads
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeWriter, 500);
+});
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
