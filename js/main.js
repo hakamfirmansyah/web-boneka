@@ -78,45 +78,48 @@ function toggleFaq(button) {
 // Data Produk untuk Modal
 const productsData = {
     beruang: {
-        title: 'Boneka Beruang Rajut DIY',
-        price: 'Rp 89.000',
+        title: 'Boneka Beruang Rajut Handmade',
+        price: 'Rp 150.000',
         image: 'https://images.unsplash.com/photo-1686151271777-12efa81f65e0?auto=format&fit=crop&q=80&w=800',
-        description: 'Kit rajut lengkap untuk membuat boneka beruang lucu dengan panduan langkah demi langkah yang mudah dipahami. Cocok untuk Anda yang baru pertama kali mencoba dunia merajut.',
+        description: 'Boneka beruang rajut yang dibuat dengan penuh cinta dan perhatian pada setiap detail. Cocok sebagai teman bermain anak atau hadiah spesial untuk orang tersayang.',
         includes: [
-            '2 gulung benang rajut premium (Coklat & Putih)',
-            'Hakpen ukuran 3.0mm',
-            'Satu kantong dakron kualitas tinggi',
-            'Sepasang mata boneka safety eyes',
-            'Jarum tapestry untuk menjahit',
-            'Buku panduan cetak & link video tutorial'
+            'Boneka rajut handmade siap pakai',
+            'Tinggi sekitar 25-30 cm',
+            'Bahan benang premium lembut dan aman',
+            'Isian dakron berkualitas tinggi',
+            'Mata boneka safety eyes',
+            'Sudah dicuci dan siap dipeluk'
         ],
         buyLink: '#kontak'
     },
     kelinci: {
-        title: 'Boneka Kelinci Rajut DIY',
-        price: 'Rp 95.000',
+        title: 'Boneka Kelinci Rajut Handmade',
+        price: 'Rp 165.000',
         image: 'https://images.unsplash.com/photo-1682954013913-25fe41e180c0?auto=format&fit=crop&q=80&w=800',
-        description: 'Kit DIY untuk membuat boneka kelinci dengan telinga panjang yang imut. Desainnya detail, sangat cocok sebagai hadiah untuk orang-orang tersayang.',
+        description: 'Boneka kelinci dengan telinga panjang yang menggemaskan. Setiap detail dirajut dengan teliti untuk menghasilkan boneka berkualitas tinggi yang tahan lama.',
         includes: [
-            '2 gulung benang rajut premium (Pink & Putih)',
-            'Hakpen ukuran 3.0mm',
-            'Satu kantong dakron kualitas tinggi',
-            'Sepasang mata boneka safety eyes',
-            'Jarum tapestry untuk menjahit',
-            'Buku panduan cetak & link video tutorial'
+            'Boneka rajut handmade siap pakai',
+            'Tinggi sekitar 30-35 cm (termasuk telinga)',
+            'Bahan benang premium lembut',
+            'Isian dakron padat dan empuk',
+            'Mata boneka safety eyes',
+            'Sudah dicuci dan siap dipeluk'
         ],
         buyLink: '#kontak'
     },
     kucing: {
-        title: 'Gantungan Kunci Kucing DIY',
-        price: 'Rp 45.000',
+        title: 'Gantungan Kunci Kucing Rajut',
+        price: 'Rp 35.000',
         image: 'https://images.unsplash.com/photo-1629019317873-3f603b269723?auto=format&fit=crop&q=80&w=800',
-        description: 'Proyek mungil yang cepat diselesaikan. Kit ini berisi bahan untuk membuat gantungan kunci bentuk wajah kucing yang sangat menggemaskan.',
+        description: 'Gantungan kunci rajut bentuk wajah kucing yang imut dan menggemaskan. Cocok untuk aksesoris tas, kunci, atau sebagai souvenir.',
         includes: [
-            '1 gulung benang rajut ukuran kecil',
-            'Hakpen ukuran 2.5mm',
-            'Ring gantungan kunci',
-            'Sepasang mata boneka kecil',
+            'Gantungan kunci rajut handmade',
+            'Ukuran sekitar 8-10 cm',
+            'Ring gantungan kunci berkualitas',
+            'Bahan benang premium',
+            'Detail wajah yang lucu',
+            'Ringan dan tahan lama'
+        ],
             'Jarum tapestry & dakron secukupnya',
             'Lembar panduan sederhana'
         ],
