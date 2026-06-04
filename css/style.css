@@ -39,12 +39,7 @@ body {
 
 /* Colorful Text Effect */
 .colorful-text {
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D, #A8E6CF, #FF8B94);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 3s ease infinite;
+    color: #8B5E3C;
     font-weight: 700;
 }
 
