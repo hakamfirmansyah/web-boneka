@@ -3,22 +3,33 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #FFE66D 0%, #4ECDC4 25%, #FF6B6B 50%, #A8E6CF 75%, #FFB3BA 100%);
-    background-size: 400% 400%;
-    animation: gradient-bg 15s ease infinite;
+    background: #FFFFFF;
     min-height: 100vh;
 }
 
-@keyframes gradient-bg {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* Section dengan accent colors */
+#home {
+    background: linear-gradient(135deg, #FFB3BA 0%, #FFFFFF 100%);
+}
+
+#produk {
+    background: #FFFFFF;
+}
+
+#galeri {
+    background: linear-gradient(135deg, #FFFFFF 0%, #A8E6CF 100%);
+}
+
+#tentang {
+    background: #FFFFFF;
+}
+
+#faq {
+    background: linear-gradient(135deg, #E6E6FA 0%, #FFFFFF 100%);
+}
+
+#kontak {
+    background: #FFFFFF;
 }
 
 /* Transisi nav yang di scroll */
