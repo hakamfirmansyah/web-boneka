@@ -2,7 +2,7 @@
 
 // Typing Animation Effect with Loop
 const typingText = document.getElementById('typing-text');
-const text = 'Boneka Rajut Handmade Penuh Cinta';
+const text = 'Boneka Rajut Handmade';
 let index = 0;
 let isDeleting = false;
 
@@ -119,9 +119,6 @@ const productsData = {
             'Bahan benang premium',
             'Detail wajah yang lucu',
             'Ringan dan tahan lama'
-        ],
-            'Jarum tapestry & dakron secukupnya',
-            'Lembar panduan sederhana'
         ],
         buyLink: '#kontak'
     }
