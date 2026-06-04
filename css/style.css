@@ -3,6 +3,22 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #FFE66D 0%, #4ECDC4 25%, #FF6B6B 50%, #A8E6CF 75%, #FFB3BA 100%);
+    background-size: 400% 400%;
+    animation: gradient-bg 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Transisi nav yang di scroll */
