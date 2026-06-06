@@ -157,7 +157,7 @@ function openDetailModal(productId) {
             </ul>
 
             <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                <a href="https://wa.me/6287781818202?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="bg-coklatTua text-putih px-6 py-3 rounded-xl font-bold text-center hover:bg-opacity-90 transition flex-grow shadow-md">
+                <a href="https://wa.me/6281929761548?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="bg-coklatTua text-putih px-6 py-3 rounded-xl font-bold text-center hover:bg-opacity-90 transition flex-grow shadow-md">
                     <i class="fab fa-whatsapp mr-2"></i> Tanya Admin
                 </a>
             </div>
