@@ -85,3 +85,102 @@ body {
         opacity: 0;
     }
 }
+
+/* Animated Gradient Text */
+.animated-gradient-text {
+    background: linear-gradient(90deg,
+        #FF6B6B 0%,
+        #4ECDC4 25%,
+        #FFE66D 50%,
+        #A8E6CF 75%,
+        #FF6B6B 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s ease infinite, pulse 2s ease-in-out infinite;
+    display: inline-block;
+    position: relative;
+}
+
+.animated-gradient-text::after {
+    content: '✨';
+    position: absolute;
+    right: -40px;
+    animation: sparkle 1.5s ease-in-out infinite;
+    -webkit-text-fill-color: initial;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+/* Neon Border Animation */
+.neon-border {
+    position: relative;
+    overflow: visible;
+}
+
+.neon-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+        #FF6B6B,
+        #4ECDC4,
+        #FFE66D,
+        #A8E6CF,
+        #FFB3BA,
+        #FF6B6B
+    );
+    background-size: 400% 400%;
+    border-radius: 0.5rem;
+    z-index: -1;
+    animation: neonGlow 3s ease infinite;
+    opacity: 0.6;
+    filter: blur(8px);
+}
+
+@keyframes neonGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
