@@ -9,7 +9,7 @@ body {
 
 /* Section dengan accent colors */
 #home {
-    background: linear-gradient(135deg, #FFB3BA 0%, #FFFFFF 100%);
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFE4D1 50%, #FFDDC1 100%);
 }
 
 #produk {
