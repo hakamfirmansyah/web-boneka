@@ -27,7 +27,9 @@ body {
 }
 
 #produk {
-    background: #FFFFFF;
+    background: linear-gradient(135deg, #FFFBF7 0%, #FFF0E5 25%, #FFE9DB 50%, #FFF0E5 75%, #FFFBF7 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
 }
 
 #galeri {
