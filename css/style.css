@@ -206,3 +206,21 @@ body {
         background-position: 0% 50%;
     }
 }
+
+/* Product Image Hover Zoom Animation */
+.neon-border img {
+    transition: transform 0.6s ease-in-out;
+}
+
+.neon-border:hover img {
+    animation: zoomPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes zoomPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
