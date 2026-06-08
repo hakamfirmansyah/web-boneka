@@ -77,50 +77,57 @@ function toggleFaq(button) {
 
 // Data Produk untuk Modal
 const productsData = {
-    beruang: {
-        title: 'Boneka Beruang Rajut Handmade',
-        price: 'Rp 150.000',
-        image: 'https://images.unsplash.com/photo-1686151271777-12efa81f65e0?auto=format&fit=crop&q=80&w=800',
-        description: 'Boneka beruang rajut yang dibuat dengan penuh cinta dan perhatian pada setiap detail. Cocok sebagai teman bermain anak atau hadiah spesial untuk orang tersayang.',
+    keycover: {
+        title: 'Key Cover',
+        image: 'assets/key cover deskripsi.JPG',
+        description: 'Key cover rajut handmade yang dibuat dengan penuh cinta dan detail. Melindungi kunci kendaraan Anda dengan gaya yang unik dan menggemaskan.',
         includes: [
-            'Boneka rajut handmade siap pakai',
-            'Tinggi sekitar 25-30 cm',
+            'Key cover rajut handmade',
+            'Bahan benang premium berkualitas tinggi',
+            'Desain unik dan menarik',
+            'Cocok untuk berbagai jenis kunci',
+            'Tahan lama dan mudah dibersihkan',
+            'Handmade dengan detail sempurna'
+        ]
+    },
+    amigurumi: {
+        title: 'Amigurumi Character',
+        image: 'assets/Boneka Anime deskripsi.JPG',
+        description: 'Boneka amigurumi karakter yang dibuat dengan teknik rajut detail dan rapi. Setiap karakter memiliki keunikan tersendiri dan cocok sebagai koleksi atau hadiah spesial.',
+        includes: [
+            'Boneka amigurumi handmade siap pakai',
+            'Tinggi sekitar 20-30 cm',
             'Bahan benang premium lembut dan aman',
             'Isian dakron berkualitas tinggi',
-            'Mata boneka safety eyes',
+            'Detail wajah dan kostum yang rapi',
             'Sudah dicuci dan siap dipeluk'
-        ],
-        buyLink: '#kontak'
+        ]
     },
-    kelinci: {
-        title: 'Boneka Kelinci Rajut Handmade',
-        price: 'Rp 165.000',
-        image: 'https://images.unsplash.com/photo-1682954013913-25fe41e180c0?auto=format&fit=crop&q=80&w=800',
-        description: 'Boneka kelinci dengan telinga panjang yang menggemaskan. Setiap detail dirajut dengan teliti untuk menghasilkan boneka berkualitas tinggi yang tahan lama.',
-        includes: [
-            'Boneka rajut handmade siap pakai',
-            'Tinggi sekitar 30-35 cm (termasuk telinga)',
-            'Bahan benang premium lembut',
-            'Isian dakron padat dan empuk',
-            'Mata boneka safety eyes',
-            'Sudah dicuci dan siap dipeluk'
-        ],
-        buyLink: '#kontak'
-    },
-    kucing: {
-        title: 'Gantungan Kunci Kucing Rajut',
-        price: 'Rp 35.000',
-        image: 'https://images.unsplash.com/photo-1629019317873-3f603b269723?auto=format&fit=crop&q=80&w=800',
-        description: 'Gantungan kunci rajut bentuk wajah kucing yang imut dan menggemaskan. Cocok untuk aksesoris tas, kunci, atau sebagai souvenir.',
+    gantungan: {
+        title: 'Keychain',
+        image: 'assets/gantungan kunci deskripsi.jpg',
+        description: 'Gantungan kunci rajut handmade dengan desain lucu dan menggemaskan. Cocok untuk aksesoris tas, kunci kendaraan, atau sebagai souvenir dan hadiah.',
         includes: [
             'Gantungan kunci rajut handmade',
-            'Ukuran sekitar 8-10 cm',
+            'Ukuran sekitar 8-12 cm',
             'Ring gantungan kunci berkualitas',
-            'Bahan benang premium',
-            'Detail wajah yang lucu',
-            'Ringan dan tahan lama'
-        ],
-        buyLink: '#kontak'
+            'Bahan benang premium tahan lama',
+            'Detail desain yang lucu dan unik',
+            'Ringan dan mudah dibawa'
+        ]
+    },
+    pouchphone: {
+        title: 'Pouch Phone | Phone Bag',
+        image: 'assets/pouch phone deskripsi.jpeg',
+        description: 'Pouch phone rajut handmade yang fungsional dan stylish. Melindungi smartphone Anda dengan bahan lembut sekaligus menambah gaya personal yang unik.',
+        includes: [
+            'Pouch phone rajut handmade',
+            'Ukuran cocok untuk berbagai smartphone',
+            'Bahan benang premium lembut',
+            'Desain praktis dengan tali',
+            'Melindungi ponsel dari goresan',
+            'Dapat digunakan sebagai tas mini'
+        ]
     }
 };
 
@@ -144,21 +151,23 @@ function openDetailModal(productId) {
             <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover md:rounded-l-3xl max-h-[400px] md:max-h-full">
         </div>
         <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-            <div class="bg-orange-100 text-coklatTua px-3 py-1 rounded-full text-xs font-bold inline-block mb-4 w-max">BEST SELLER</div>
-            <h3 class="text-3xl font-bold text-coklatTua mb-2">${data.title}</h3>
-            <p class="text-2xl font-bold text-coklatMuda mb-6">${data.price}</p>
+            <div class="bg-orange-100 text-coklatTua px-3 py-1 rounded-full text-xs font-bold inline-block mb-4 w-max">HANDMADE</div>
+            <h3 class="text-3xl font-bold text-coklatTua mb-4">${data.title}</h3>
 
             <h4 class="font-bold text-gray-800 mb-2">Deskripsi Produk:</h4>
             <p class="text-gray-600 mb-6">${data.description}</p>
 
-            <h4 class="font-bold text-gray-800 mb-3">Isi Paket Termasuk:</h4>
+            <h4 class="font-bold text-gray-800 mb-3">Detail Produk:</h4>
             <ul class="mb-8">
                 ${includesHtml}
             </ul>
 
             <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                <a href="https://wa.me/6281929761548?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="bg-coklatTua text-putih px-6 py-3 rounded-xl font-bold text-center hover:bg-opacity-90 transition flex-grow shadow-md">
-                    <i class="fab fa-whatsapp mr-2"></i> Tanya Admin
+                <a href="https://wa.me/6281929761548?text=Halo%20admin!%20Saya%20tertarik%20dengan%20produk%20${encodeURIComponent(data.title)}" target="_blank" class="bg-green-500 text-putih px-6 py-3 rounded-xl font-bold text-center hover:bg-green-600 transition flex-grow shadow-md">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/rarscrochet?igsh=ODVreHV0bzhkcnN6" target="_blank" class="bg-pink-500 text-putih px-6 py-3 rounded-xl font-bold text-center hover:bg-pink-600 transition flex-grow shadow-md">
+                    <i class="fab fa-instagram mr-2"></i> Instagram
                 </a>
             </div>
         </div>
