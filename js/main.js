@@ -96,7 +96,7 @@ const productsData = {
         description: 'Boneka amigurumi karakter yang dibuat dengan teknik rajut detail dan rapi. Setiap karakter memiliki keunikan tersendiri dan cocok sebagai koleksi atau hadiah spesial.',
         includes: [
             'Boneka amigurumi handmade siap pakai',
-            'Tinggi sekitar 20-30 cm',
+            'Tinggi sekitar 10-11 cm',
             'Bahan benang premium lembut dan aman',
             'Isian dakron berkualitas tinggi',
             'Detail wajah dan kostum yang rapi',
@@ -109,7 +109,7 @@ const productsData = {
         description: 'Gantungan kunci rajut handmade dengan desain lucu dan menggemaskan. Cocok untuk aksesoris tas, kunci kendaraan, atau sebagai souvenir dan hadiah.',
         includes: [
             'Gantungan kunci rajut handmade',
-            'Ukuran sekitar 8-12 cm',
+            'Ukuran 5x3 cm',
             'Ring gantungan kunci berkualitas',
             'Bahan benang premium tahan lama',
             'Detail desain yang lucu dan unik',
