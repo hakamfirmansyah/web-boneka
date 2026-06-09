@@ -245,19 +245,28 @@ button:hover {
         0 10px 40px rgba(139, 94, 60, 0.08),
         inset 0 0 30px rgba(255, 255, 255, 0.2);
     overflow: hidden;
+    z-index: 1;
 }
 
 /* Logo positioning adjustment for desktop */
 @media (min-width: 768px) {
     .logo-wrapper {
         transform: translateY(-60px);
+        z-index: 1;
     }
 }
 
 @media (min-width: 1024px) {
     .logo-wrapper {
         transform: translateY(-80px);
+        z-index: 1;
     }
+}
+
+/* Ensure content has higher z-index than logo */
+.hero-content {
+    position: relative;
+    z-index: 10;
 }
 
 /* Animated gradient background */
