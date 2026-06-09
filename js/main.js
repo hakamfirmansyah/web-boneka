@@ -2,7 +2,7 @@
 
 // Typing Animation Effect with Loop
 const typingText = document.getElementById('typing-text');
-const text = 'Boneka Rajut Handmade';
+const text = 'RAr\'s Crochet';
 let index = 0;
 let isDeleting = false;
 
@@ -187,4 +187,51 @@ modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         closeModal();
     }
+});
+
+// Scroll Animation Observer
+const scrollAnimationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+});
+
+// Apply scroll animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Animate all elements with scroll-animate class
+    const scrollElements = document.querySelectorAll('.scroll-animate, .fade-in-left, .fade-in-right, .scale-up, .stagger-item');
+    scrollElements.forEach(el => {
+        scrollAnimationObserver.observe(el);
+    });
+});
+
+// Loading Screen
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    setTimeout(() => {
+        loadingScreen.classList.add('fade-out');
+    }, 1500); // Show loading for 1.5 seconds
+});
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
