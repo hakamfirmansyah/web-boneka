@@ -1,5 +1,7 @@
 /* Google Font Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Google Font Montserrat for Headers */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -54,4 +56,223 @@ body {
 /* Card Zoom effect */
 .card-zoom:hover .card-zoom-image {
   transform: scale(1.05);
+}
+
+/* Animated Gradient Text for "Produk Pilihan Kami" */
+.animated-gradient-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F, #4ECDC4, #FF6B6B);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+  text-shadow: 2px 2px 4px rgba(139, 94, 60, 0.2);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Glow effect untuk text */
+.animated-gradient-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F, #4ECDC4, #FF6B6B);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Scroll Animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in from left */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade in from right */
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale up animation */
+.scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scale-up.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animation for cards */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stagger-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay classes for stagger effect */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+
+/* Logo Container with Background Accent */
+.logo-container {
+  position: relative;
+  background: linear-gradient(135deg, rgba(214, 167, 122, 0.15) 0%, rgba(255, 247, 237, 0.8) 50%, rgba(139, 94, 60, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(214, 167, 122, 0.3);
+  box-shadow:
+    0 10px 40px rgba(139, 94, 60, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+/* Animated gradient background */
+.logo-bg-accent {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 107, 107, 0.08),
+    rgba(78, 205, 196, 0.08),
+    rgba(255, 230, 109, 0.08),
+    rgba(168, 230, 207, 0.08)
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  z-index: 1;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating decorative circles */
+.logo-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0.15;
+  animation: floatCircle 8s ease-in-out infinite;
+}
+
+.logo-bg-circle-1 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(214, 167, 122, 0.4), transparent);
+  top: -30px;
+  left: -30px;
+  animation-delay: 0s;
+}
+
+.logo-bg-circle-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.3), transparent);
+  bottom: -50px;
+  right: -50px;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.logo-bg-circle-3 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.3), transparent);
+  top: 50%;
+  right: -20px;
+  animation-delay: 4s;
+  animation-duration: 12s;
+}
+
+@keyframes floatCircle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.25;
+  }
+}
+
+/* Logo image hover effect */
+.logo-image {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.logo-container:hover .logo-image {
+  transform: scale(1.05) rotate(2deg);
+  filter: brightness(1.1);
+}
+
+/* Pattern overlay untuk texture */
+.logo-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(214, 167, 122, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(139, 94, 60, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px, 40px 40px;
+  background-position: 0 0, 15px 15px;
+  z-index: 3;
+  pointer-events: none;
 }

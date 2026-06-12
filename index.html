@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
     </div>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/6281929761548?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="whatsapp-float" aria-label="Chat WhatsApp">
+    <a href="https://wa.me/6281929761548?text=Hello%20admin!%20I%20would%20like%20to%20inquire%20about%20this%20product." target="_blank" class="whatsapp-float" aria-label="Chat WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -73,15 +73,30 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Home</a>
-                    <a href="#produk" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Produk</a>
-                    <a href="#galeri" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Galeri</a>
-                    <a href="#tentang" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Tentang Kami</a>
+                    <a href="#produk" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="Products" data-id="Produk">Products</a>
+                    <a href="#galeri" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="Gallery" data-id="Galeri">Gallery</a>
+                    <a href="#tentang" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="About Us" data-id="Tentang Kami">About Us</a>
                     <a href="#faq" class="text-coklatTua hover:text-coklatMuda font-semibold transition">FAQ</a>
-                    <a href="#kontak" class="text-coklatTua hover:text-coklatMuda font-semibold transition">Kontak</a>
+                    <a href="#kontak" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="Contact" data-id="Kontak">Contact</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <button id="lang-en" class="lang-btn active flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-cream transition">
+                        <span class="text-xl">🇬🇧</span>
+                        <span class="text-sm font-semibold">EN</span>
+                    </button>
+                    <button id="lang-id" class="lang-btn flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-cream transition">
+                        <span class="text-xl">🇮🇩</span>
+                        <span class="text-sm font-semibold">ID</span>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-lang-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none">
+                        <span class="text-2xl" id="current-flag">🇬🇧</span>
+                    </button>
                     <button id="mobile-menu-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
@@ -92,16 +107,36 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-putih shadow-lg absolute w-full">
             <a href="#home" class="block px-4 py-3 text-coklatTua border-b border-cream">Home</a>
-            <a href="#produk" class="block px-4 py-3 text-coklatTua border-b border-cream">Produk</a>
-            <a href="#galeri" class="block px-4 py-3 text-coklatTua border-b border-cream">Galeri</a>
-            <a href="#tentang" class="block px-4 py-3 text-coklatTua border-b border-cream">Tentang Kami</a>
+            <a href="#produk" class="block px-4 py-3 text-coklatTua border-b border-cream" data-en="Products" data-id="Produk">Products</a>
+            <a href="#galeri" class="block px-4 py-3 text-coklatTua border-b border-cream" data-en="Gallery" data-id="Galeri">Gallery</a>
+            <a href="#tentang" class="block px-4 py-3 text-coklatTua border-b border-cream" data-en="About Us" data-id="Tentang Kami">About Us</a>
             <a href="#faq" class="block px-4 py-3 text-coklatTua border-b border-cream">FAQ</a>
-            <a href="#kontak" class="block px-4 py-3 text-coklatTua">Kontak</a>
+            <a href="#kontak" class="block px-4 py-3 text-coklatTua" data-en="Contact" data-id="Kontak">Contact</a>
+            <div class="border-t border-cream p-4">
+                <div class="flex justify-center space-x-2">
+                    <button class="mobile-lang-option flex items-center space-x-2 px-4 py-2 rounded-lg bg-cream hover:bg-coklatMuda hover:text-putih transition" data-lang="en">
+                        <span class="text-xl">🇬🇧</span>
+                        <span class="font-semibold">English</span>
+                    </button>
+                    <button class="mobile-lang-option flex items-center space-x-2 px-4 py-2 rounded-lg bg-cream hover:bg-coklatMuda hover:text-putih transition" data-lang="id">
+                        <span class="text-xl">🇮🇩</span>
+                        <span class="font-semibold">Indonesia</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-28 pb-20 md:pt-40 md:pb-32 px-4">
+    <section id="home" class="pt-28 pb-14 md:pt-32 md:pb-16 px-4">
+        <!-- Soft crochet decorative accents -->
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero-small"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero-mini"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero-faint"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero-right-large"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-hero-center-back"></div>
+
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <!-- Content Section -->
             <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1 hero-content">
@@ -109,28 +144,28 @@
                     <span id="typing-text" class="colorful-text"></span>
                 </h1>
 
-                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
-                    Kami percaya bahwa setiap produk handmade memiliki cerita dan nilai yang tidak dapat digantikan oleh produk massal. Karena itu, kami menghadirkan karya rajut yang dibuat dengan ketelitian, kualitas terbaik, dan sentuhan personal untuk menemani aktivitas serta momen spesial Anda.
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed" data-en="We believe that every handmade product has a story and value that cannot be replaced by mass-produced items. That's why we present crochet creations made with precision, the best quality, and a personal touch to accompany your activities and special moments." data-id="Kami percaya bahwa setiap produk handmade memiliki cerita dan nilai yang tidak dapat digantikan oleh produk massal. Karena itu, kami menghadirkan karya rajut yang dibuat dengan ketelitian, kualitas terbaik, dan sentuhan personal untuk menemani aktivitas serta momen spesial Anda.">
+                    We believe that every handmade product has a story and value that cannot be replaced by mass-produced items. That's why we present crochet creations made with precision, the best quality, and a personal touch to accompany your activities and special moments.
                 </p>
 
-                <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
-                    Setiap produk dibuat secara handmade menggunakan benang pilihan, teknik crochet yang rapi, serta proses pengerjaan yang detail untuk menghasilkan produk yang unik, tahan lama, dan nyaman digunakan.
+                <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed" data-en="Each product is handmade using premium yarn, neat crochet techniques, and detailed workmanship to create unique, durable, and comfortable products." data-id="Setiap produk dibuat secara handmade menggunakan benang pilihan, teknik crochet yang rapi, serta proses pengerjaan yang detail untuk menghasilkan produk yang unik, tahan lama, dan nyaman digunakan.">
+                    Each product is handmade using premium yarn, neat crochet techniques, and detailed workmanship to create unique, durable, and comfortable products.
                 </p>
 
                 <div class="bg-gradient-to-r from-coklatMuda/20 to-coklatTua/20 rounded-xl p-4 mb-8 border-l-4 border-coklatMuda">
                     <p class="text-sm md:text-base text-gray-800 space-y-1">
-                        <span class="block"><i class="fas fa-map-marker-alt text-coklatMuda mr-2"></i>Melayani pemesanan seluruh Indonesia</span>
+                        <span class="block" data-en="Serving orders throughout Indonesia" data-id="Melayani pemesanan seluruh Indonesia"><i class="fas fa-map-marker-alt text-coklatMuda mr-2"></i>Serving orders throughout Indonesia</span>
                         <span class="block"><i class="fas fa-check-circle text-coklatMuda mr-2"></i>Handmade • Custom Order • Premium Quality</span>
-                        <span class="block"><i class="fas fa-globe text-coklatMuda mr-2"></i>Temukan koleksi terbaru dan lakukan pemesanan</span>
+                        <span class="block" data-en="Discover the latest collection and place your order" data-id="Temukan koleksi terbaru dan lakukan pemesanan"><i class="fas fa-globe text-coklatMuda mr-2"></i>Discover the latest collection and place your order</span>
                     </p>
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-                    <a href="#produk" class="bg-coklatTua text-putih px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg">
-                        Lihat Produk
+                    <a href="#produk" class="btn-lihat-produk bg-coklatTua text-putih px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg" data-en="View Products" data-id="Lihat Produk">
+                        View Products
                     </a>
-                    <a href="https://wa.me/6281929761548?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="border-2 border-coklatTua text-coklatTua px-8 py-3 rounded-full font-semibold hover:bg-coklatTua hover:text-putih transition">
-                        Hubungi Kami
+                    <a href="https://wa.me/6281929761548?text=Hello%20admin!%20I%20would%20like%20to%20inquire%20about%20this%20product." target="_blank" class="btn-hubungi-kami border-2 border-coklatTua text-coklatTua px-8 py-3 rounded-full font-semibold transition" data-en="Contact Us" data-id="Hubungi Kami" data-wa-en="Hello%20admin!%20I%20would%20like%20to%20inquire%20about%20this%20product." data-wa-id="Halo%20admin!%20Saya%20ingin%20bertanya%20tentang%20produk%20ini.">
+                        <i class="fab fa-whatsapp btn-icon-animate mr-2"></i>Contact Us
                     </a>
                 </div>
 
@@ -141,15 +176,15 @@
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-star text-coklatMuda text-2xl mb-2 feature-icon"></i>
-                        <h3 class="font-semibold text-sm">Bahan Berkualitas</h3>
+                        <h3 class="font-semibold text-sm" data-en="Quality Materials" data-id="Bahan Berkualitas">Quality Materials</h3>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-box text-coklatMuda text-2xl mb-2 feature-icon"></i>
-                        <h3 class="font-semibold text-sm">Siap Kirim</h3>
+                        <h3 class="font-semibold text-sm" data-en="Ready to Ship" data-id="Siap Kirim">Ready to Ship</h3>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-gift text-coklatMuda text-2xl mb-2 feature-icon"></i>
-                        <h3 class="font-semibold text-sm">Cocok untuk Hadiah</h3>
+                        <h3 class="font-semibold text-sm" data-en="Perfect for Gifts" data-id="Cocok untuk Hadiah">Perfect for Gifts</h3>
                     </div>
                 </div>
             </div>
@@ -172,14 +207,21 @@
     </section>
 
     <!-- Produk Section -->
-    <section id="produk" class="py-20 bg-putih">
+    <section id="produk" class="py-14 md:py-16 bg-putih">
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-mid"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-bottom"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-mini"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-left-mid"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-center-back"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-produk-right-bottom"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-animate">
-                <h2 class="text-3xl font-bold mb-4 animated-gradient-text">Produk Pilihan Kami</h2>
-                <p class="text-gray-600">Boneka rajut handmade berkualitas tinggi siap dimiliki</p>
+            <div class="text-center mb-10 md:mb-12 scroll-animate">
+                <h2 class="text-3xl font-bold mb-4 animated-gradient-text" data-en="Our Featured Products" data-id="Produk Pilihan Kami">Our Featured Products</h2>
+                <p class="text-gray-600" data-en="High-quality handmade crochet dolls ready to own" data-id="Boneka rajut handmade berkualitas tinggi siap dimiliki">High-quality handmade crochet dolls ready to own</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
                 <!-- Product Card 1 -->
                 <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-100">
                     <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
@@ -193,10 +235,10 @@
                             <div class="text-yellow-400 text-sm mb-3">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="text-gray-600 text-sm mb-4">Handmade dengan bahan premium</p>
+                            <p class="text-gray-600 text-sm mb-4">Handmade with premium materials</p>
                         </div>
-                        <button onclick="openDetailModal('keycover')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            Lihat Detail <i class="fas fa-arrow-right"></i>
+                        <button onclick="openDetailModal('keycover')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition" data-en="View Details" data-id="Lihat Detail">
+                            <span class="btn-text">View Details</span> <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -214,10 +256,10 @@
                             <div class="text-yellow-400 text-sm mb-3">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="text-gray-600 text-sm mb-4">Detail rajutan yang indah</p>
+                            <p class="text-gray-600 text-sm mb-4">Beautiful crochet details</p>
                         </div>
                         <button onclick="openDetailModal('amigurumi')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            Lihat Detail <i class="fas fa-arrow-right"></i>
+                            View Details <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -235,10 +277,10 @@
                             <div class="text-yellow-400 text-sm mb-3">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="text-gray-600 text-sm mb-4">Aksesoris imut dan lucu</p>
+                            <p class="text-gray-600 text-sm mb-4">Cute and adorable accessories</p>
                         </div>
                         <button onclick="openDetailModal('gantungan')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            Lihat Detail <i class="fas fa-arrow-right"></i>
+                            View Details <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -256,10 +298,52 @@
                             <div class="text-yellow-400 text-sm mb-3">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="text-gray-600 text-sm mb-4">Handmade dengan bahan premium</p>
+                            <p class="text-gray-600 text-sm mb-4">Handmade with premium materials</p>
                         </div>
                         <button onclick="openDetailModal('pouchphone')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            Lihat Detail <i class="fas fa-arrow-right"></i>
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-500">
+                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
+                        <img src="assets/demon slayer deskripsi.jpeg" alt="Demon Slayer Amigurumi" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="text-center">
+                            <div class="flex justify-center items-center mb-2">
+                                <h3 class="product-title text-xl font-bold text-coklatTua">Demon Slayer Amigurumi</h3>
+                            </div>
+                            <div class="text-yellow-400 text-sm mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Custom crochet anime characters</p>
+                        </div>
+                        <button onclick="openDetailModal('demonslayer')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-600">
+                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
+                        <img src="assets/dompet tws deskripsi.jpeg" alt="Dompet TWS Crochet" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="text-center">
+                            <div class="flex justify-center items-center mb-2">
+                                <h3 class="product-title text-xl font-bold text-coklatTua">Dompet TWS Crochet</h3>
+                            </div>
+                            <div class="text-yellow-400 text-sm mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Cute crochet pouch for TWS</p>
+                        </div>
+                        <button onclick="openDetailModal('dompettws')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
+                            View Details <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -281,52 +365,166 @@
     </div>
 
     <!-- Galeri Section -->
-    <section id="galeri" class="py-20 bg-cream">
+    <section id="galeri" class="py-14 md:py-16 bg-cream">
+        <div class="craft-accent bg-yarn-image bg-yarn-image-galeri"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-galeri-right"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-galeri-bottom"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-galeri-center-back"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-galeri-left-bottom"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 scroll-animate">
-                <h2 class="text-3xl font-bold text-coklatTua mb-4">Galeri Kreasi</h2>
-                <p class="text-gray-600">Inspirasi hasil karya dari pelanggan kami</p>
+            <div class="text-center mb-8 md:mb-10 scroll-animate">
+                <h2 class="text-3xl font-bold text-coklatTua mb-4" data-en="Creation Gallery" data-id="Galeri Kreasi">Creation Gallery</h2>
+                <p class="text-gray-600" data-en="Inspiration from our customers' creations" data-id="Inspirasi hasil karya dari pelanggan kami">Inspiration from our customers' creations</p>
             </div>
 
             <!-- Kategori -->
-            <div class="flex flex-wrap justify-center gap-4 mb-10 fade-in-left">
-                <button class="bg-coklatTua text-putih px-6 py-2 rounded-full font-semibold">Semua</button>
-                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Hewan</button>
-                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Karakter</button>
-                <button class="bg-putih text-coklatTua border border-coklatTua px-6 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Mini Doll</button>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 fade-in-left" id="galleryFilters">
+                <button type="button" data-filter="keycover" class="gallery-filter-btn active bg-coklatTua text-putih border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Key Cover</button>
+                <button type="button" data-filter="amigurumi" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Amigurumi Character</button>
+                <button type="button" data-filter="gantungan" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Keychain</button>
+                <button type="button" data-filter="pouchphone" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Pouch Phone</button>
+                <button type="button" data-filter="demonslayer" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Demon Slayer</button>
+                <button type="button" data-filter="dompettws" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Dompet TWS</button>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group scale-up delay-100">
-                    <img src="https://images.unsplash.com/photo-1627693685101-687bf0eb1222?auto=format&fit=crop&q=80&w=400" alt="Galeri 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="galleryGrid">
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-100 shadow-sm border border-coklatMuda/20" data-category="keycover">
+                    <img src="assets/key 1.jpeg" alt="Key Cover 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Key Cover 1</div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group scale-up delay-200">
-                    <img src="https://images.unsplash.com/photo-1629019317873-3f603b269723?auto=format&fit=crop&q=80&w=400" alt="Galeri 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-200 shadow-sm border border-coklatMuda/20" data-category="keycover">
+                    <img src="assets/key 2.jpeg" alt="Key Cover 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Key Cover 2</div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group scale-up delay-300">
-                    <img src="https://images.unsplash.com/photo-1686151271777-12efa81f65e0?auto=format&fit=crop&q=80&w=400" alt="Galeri 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-300 shadow-sm border border-coklatMuda/20" data-category="keycover">
+                    <img src="assets/key 3.jpeg" alt="Key Cover 3" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Key Cover 3</div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer group scale-up delay-400">
-                    <img src="https://images.unsplash.com/photo-1682954013913-25fe41e180c0?auto=format&fit=crop&q=80&w=400" alt="Galeri 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-400 shadow-sm border border-coklatMuda/20" data-category="amigurumi">
+                    <img src="assets/amigurumi 1.jpeg" alt="Amigurumi Character 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Amigurumi Character 1</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-500 shadow-sm border border-coklatMuda/20" data-category="amigurumi">
+                    <img src="assets/amigurumi 2.jpeg" alt="Amigurumi Character 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Amigurumi Character 2</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="gantungan">
+                    <img src="assets/gantungan kunci deskripsi.jpg" alt="Keychain" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Keychain</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="pouchphone">
+                    <img src="assets/pouch phone deskripsi.jpeg" alt="Pouch Phone" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Pouch Phone</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-700 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
+                    <img src="assets/demon slayer 1.jpeg" alt="Demon Slayer 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Demon Slayer 1</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-800 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
+                    <img src="assets/demon slayer 2.jpeg" alt="Demon Slayer 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Demon Slayer 2</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-900 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
+                    <img src="assets/demon slayer 3.jpeg" alt="Demon Slayer 3" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Demon Slayer 3</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1000 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
+                    <img src="assets/demon slayer 4.jpeg" alt="Demon Slayer 4" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Demon Slayer 4</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1100 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
+                    <img src="assets/demon slayer 5.jpeg" alt="Demon Slayer 5" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Demon Slayer 5</div>
+                </div>
+                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1200 shadow-sm border border-coklatMuda/20" data-category="dompettws">
+                    <img src="assets/dompet tws deskripsi.jpeg" alt="Dompet TWS Crochet" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">Dompet TWS</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tentang Kami & Testimoni Section -->
-    <section id="tentang" class="py-20 bg-putih">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-coklatTua mb-8 border-b-2 border-coklatMuda inline-block pb-2 scroll-animate">Tentang Kami</h2>
-            <p class="max-w-4xl mx-auto text-gray-700 text-base md:text-lg leading-relaxed mb-20 fade-in-left">
-                RAr's Crochet Handmade menyediakan berbagai produk rajut seperti amigurumi custom, boneka rajut handmade, gantungan kunci rajut, keychain crochet, aksesoris fashion rajut, souvenir handmade, hadiah custom, dekorasi rajut, dan berbagai produk crochet premium lainnya. Kami juga melayani pesanan custom sesuai karakter, tema, atau kebutuhan Anda.
-            </p>
+    <!-- Modal Preview Galeri -->
+    <div id="galleryPreviewModal" class="fixed inset-0 bg-black bg-opacity-70 z-[70] hidden flex items-center justify-center p-4">
+        <div class="gallery-preview-box bg-putih rounded-3xl max-w-4xl w-full shadow-2xl relative overflow-hidden">
+            <button onclick="closeGalleryPreview()" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center z-10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
 
-            <h2 class="text-3xl font-bold text-coklatTua mb-12 scroll-animate">Apa Kata Mereka</h2>
+            <div class="bg-gradient-to-br from-putih via-cream/40 to-putih p-5 md:p-8">
+                <img id="galleryPreviewImage" src="" alt="Gallery Preview" class="w-full max-h-[72vh] object-contain rounded-2xl">
+            </div>
+
+            <div class="px-6 md:px-8 py-5 bg-putih border-t border-coklatMuda/20">
+                <h3 id="galleryPreviewTitle" class="text-2xl font-bold text-coklatTua mb-1">Gallery Preview</h3>
+                <p class="text-gray-600 text-sm">RAr's Crochet handmade crochet details</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tentang Kami & Testimoni Section -->
+    <section id="tentang" class="py-14 md:py-16 bg-putih">
+        <div class="craft-accent bg-yarn-image bg-yarn-image-tentang"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-tentang-left"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-tentang-mini"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-tentang-center"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-tentang-right-top"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-coklatTua mb-8 md:mb-10 border-b-2 border-coklatMuda inline-block pb-2 scroll-animate" data-en="About Us" data-id="Tentang Kami">About Us</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 md:mb-14 text-left">
+                <div class="about-card bg-putih/80 rounded-3xl p-6 md:p-8 shadow-sm border border-coklatMuda/20 fade-in-left">
+                    <span class="inline-flex items-center bg-coklatMuda/15 text-coklatTua px-4 py-2 rounded-full text-sm font-semibold mb-5">
+                        <i class="fas fa-heart text-coklatMuda mr-2"></i>RAr's Crochet Handmade
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-coklatTua mb-4">Handmade crochet creations for your special moments</h3>
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-4">
+                        RAr's Crochet Handmade provides various crochet products such as custom amigurumi, handmade crochet dolls, crochet keychains, crochet fashion accessories, handmade souvenirs, custom gifts, crochet decorations, and various other premium crochet products.
+                    </p>
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                        We also accept custom orders according to your preferred characters, themes, colors, or needs so that each product feels more personal and memorable.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 fade-in-right">
+                    <div class="about-value-card">
+                        <div class="about-value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-coklatTua mb-1">Handmade</h4>
+                            <p class="text-gray-600 text-sm md:text-base">Manually made with neat crochet details and personal touch.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-value-card">
+                        <div class="about-value-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-coklatTua mb-1">Custom Order</h4>
+                            <p class="text-gray-600 text-sm md:text-base">You can request characters, colors, themes, and sizes according to your needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-value-card sm:col-span-2 lg:col-span-1">
+                        <div class="about-value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-coklatTua mb-1">Premium Quality & Nationwide</h4>
+                            <p class="text-gray-600 text-sm md:text-base">Using premium yarn and serving orders throughout Indonesia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold text-coklatTua mb-8 md:mb-10 scroll-animate" data-en="What They Say" data-id="Apa Kata Mereka">What They Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <!-- Testimonial 1 -->
                 <div class="bg-cream p-8 rounded-2xl shadow-sm relative stagger-item delay-100">
                     <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
-                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Bonekanya lucu banget dan rapih! Detail rajutannya halus dan isian padat. Anak saya langsung suka!"</p>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium testimonial-text">"The doll is so cute and neat! The crochet details are smooth and the filling is solid. My child loves it!"</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">A</div>
                         <div>
@@ -339,7 +537,7 @@
                 <!-- Testimonial 2 -->
                 <div class="bg-cream p-8 rounded-2xl shadow-sm relative stagger-item delay-200">
                     <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
-                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Kualitas rajutannya bagus banget! Bahan lembut dan warnanya cantik. Cocok banget buat kado."</p>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium testimonial-text">"The quality of the crochet is excellent! The material is soft and the colors are beautiful. Perfect for gifts."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">D</div>
                         <div>
@@ -352,7 +550,7 @@
                 <!-- Testimonial 3 -->
                 <div class="bg-cream p-8 rounded-2xl shadow-sm relative stagger-item delay-300">
                     <i class="fas fa-quote-left text-4xl text-coklatMuda opacity-20 absolute top-4 left-4"></i>
-                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium">"Boneka rajutnya menggemaskan! Packagingnya rapi dan pengiriman cepat. Puas banget belanja di sini."</p>
+                    <p class="text-gray-700 mb-6 italic relative z-10 font-medium testimonial-text">"The crochet doll is adorable! The packaging is neat and delivery is fast. Very satisfied shopping here."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-coklatTua rounded-full flex items-center justify-center text-putih font-bold mr-4">R</div>
                         <div>
@@ -366,44 +564,48 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-cream">
+    <section id="faq" class="py-14 md:py-16 bg-cream">
+        <div class="craft-accent bg-yarn-image bg-yarn-image-faq"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-faq-small"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-faq-center"></div>
+        <div class="craft-accent bg-yarn-image bg-yarn-image-faq-right-top"></div>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 scroll-animate">
+            <div class="text-center mb-8 md:mb-10 scroll-animate">
                 <h2 class="text-3xl font-bold text-coklatTua mb-4">FAQ</h2>
-                <p class="text-gray-600">Pertanyaan yang sering diajukan</p>
+                <p class="text-gray-600" data-en="Frequently Asked Questions" data-id="Pertanyaan yang sering diajukan">Frequently Asked Questions</p>
             </div>
 
             <div class="space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden stagger-item delay-100">
-                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        Apakah boneka sudah jadi atau harus merakit sendiri?
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none faq-question" onclick="toggleFaq(this)">
+                        Are the dolls ready-made or do I have to assemble them myself?
                         <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
                     </button>
                     <div class="px-6 pb-4 hidden text-gray-600 faq-content">
-                        Boneka kami sudah dalam bentuk jadi dan siap pakai. Anda tidak perlu merakit atau merajut sendiri. Setiap boneka dibuat dengan tangan (handmade) oleh pengrajin kami dengan penuh perhatian pada detail.
+                        Our dolls are already finished and ready to use. You don't need to assemble or crochet them yourself. Each doll is handmade by our craftsmen with full attention to detail.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden stagger-item delay-200">
-                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        Berapa lama waktu pengiriman?
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none faq-question" onclick="toggleFaq(this)">
+                        How long does shipping take?
                         <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
                     </button>
                     <div class="px-6 pb-4 hidden text-gray-600 faq-content">
-                        Untuk produk yang ready stock, kami akan proses pengiriman dalam 1-2 hari kerja setelah pembayaran dikonfirmasi. Estimasi pengiriman tergantung lokasi dan jasa ekspedisi yang dipilih.
+                        For products in stock, we will process the shipment within 1-2 business days after payment is confirmed. Shipping estimates depend on location and the selected courier service.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
                 <div class="bg-putih rounded-lg shadow-sm border border-orange-100 overflow-hidden stagger-item delay-300">
-                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        Apakah bisa request custom boneka?
+                    <button class="w-full px-6 py-4 text-left font-bold text-coklatTua flex justify-between items-center focus:outline-none faq-question" onclick="toggleFaq(this)">
+                        Can I request a custom doll?
                         <i class="fas fa-chevron-down text-coklatMuda transition-transform duration-300"></i>
                     </button>
                     <div class="px-6 pb-4 hidden text-gray-600 faq-content">
-                        Ya, kami menerima custom order untuk boneka dengan desain, warna, atau ukuran tertentu. Silakan hubungi admin kami melalui WhatsApp untuk diskusi detail dan estimasi waktu pengerjaan.
+                        Yes, we accept custom orders for dolls with specific designs, colors, or sizes. Please contact our admin via WhatsApp to discuss details and estimated production time.
                     </div>
                 </div>
             </div>
@@ -411,14 +613,14 @@
     </section>
 
     <!-- Kontak Section -->
-    <section id="kontak" class="py-20 bg-putih">
+    <section id="kontak" class="py-14 md:py-16 bg-putih">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-coklatTua mb-6 scroll-animate">Hubungi Kami</h2>
-                <p class="text-gray-600 mb-8 fade-in-left">Punya pertanyaan seputar produk kami? Jangan ragu untuk menghubungi kami melalui kotak masuk atau media sosial kami.</p>
+                <h2 class="text-3xl font-bold text-coklatTua mb-6 scroll-animate" data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h2>
+                <p class="text-gray-600 mb-8 fade-in-left" data-en="Have questions about our products? Don't hesitate to contact us through our inbox or social media." data-id="Punya pertanyaan seputar produk kami? Jangan ragu untuk menghubungi kami melalui kotak masuk atau media sosial kami.">Have questions about our products? Don't hesitate to contact us through our inbox or social media.</p>
 
                 <div class="flex flex-col items-center space-y-4 mb-8 fade-in-right">
-                    <a href="https://wa.me/6281929761548?text=halo%20admin!%20saya%20ingin%20bertanya%20tentang%20produk%20ini." target="_blank" class="flex items-center text-coklatTua text-left w-48 hover:text-coklatMuda transition">
+                    <a href="https://wa.me/6281929761548?text=Hello%20admin!%20I%20would%20like%20to%20inquire%20about%20this%20product." target="_blank" class="flex items-center text-coklatTua text-left w-48 hover:text-coklatMuda transition">
                         <i class="fab fa-whatsapp text-2xl w-8 text-green-500"></i>
                         <span class="font-medium">0819 2976 1548</span>
                     </a>
@@ -453,6 +655,7 @@
     </footer>
 
     <!-- Script External -->
+    <script src="js/language.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
