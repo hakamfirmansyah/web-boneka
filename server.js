@@ -9,16 +9,17 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const SECRET_KEY = 'cozy_stitches_secret_key_2026';
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
-// Pastikan folder upload ada
-const uploadDir = path.join(__dirname, 'assets', 'uploads');
-if (!fs.existsSync(uploadDir)) {
+// Pastikan folder upload ada (gunakan /tmp jika di Vercel karena filesystem read-only)
+const isVercel = process.env.VERCEL || process.env.NOW_BUILD;
+const uploadDir = isVercel ? '/tmp' : path.join(__dirname, 'assets', 'uploads');
+if (!isVercel && !fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }
 
@@ -596,7 +597,11 @@ app.get('/api/admin/users', verifyToken, requireAdmin, async (req, res) => {
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
 });
 
-app.listen(PORT, () => {
-    console.log(`✅ Server berjalan di http://localhost:${PORT}`);
-    console.log(`📌 Admin: username=admin, password=admin123`);
-});
+if (!isVercel) {
+    app.listen(PORT, () => {
+        console.log(`✅ Server berjalan di http://localhost:${PORT}`);
+        console.log(`📌 Admin: username=admin, password=admin123`);
+    });
+}
+
+module.exports = app;

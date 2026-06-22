@@ -151,13 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const username = document.getElementById('authUsername').value.trim();
         const password = document.getElementById('authPassword').value;
-        const endpoint = isLoginMode ? '/api/login' : '/api/register';
+        const endpoint = isLoginMode ? `${API_BASE_URL}/api/login` : `${API_BASE_URL}/api/register`;
 
         authSubmitBtn.disabled = true;
         authSubmitBtn.textContent = 'Loading...';
 
         try {
-            const response = await fetch(`http://localhost:3000${endpoint}`, {
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })

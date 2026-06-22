@@ -84,7 +84,7 @@ function formatRupiah(angka) {
 
 async function loadProductsFromAPI() {
     try {
-        const res = await fetch('http://localhost:3000/api/products');
+        const res = await fetch(`${API_BASE_URL}/api/products`);
         if (!res.ok) throw new Error('API error');
         const products = await res.json();
 

@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = API_BASE_URL;
 let deleteTargetId = null;
 
 // ─── Guard: Cek admin auth ─────────────────────────────────────────────────────
