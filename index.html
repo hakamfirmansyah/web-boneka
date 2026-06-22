@@ -78,6 +78,11 @@
                     <a href="#tentang" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="About Us" data-id="Tentang Kami">About Us</a>
                     <a href="#faq" class="text-coklatTua hover:text-coklatMuda font-semibold transition">FAQ</a>
                     <a href="#kontak" class="text-coklatTua hover:text-coklatMuda font-semibold transition" data-en="Contact" data-id="Kontak">Contact</a>
+                    <button id="desktopCartBtn" class="text-coklatTua hover:text-coklatMuda relative focus:outline-none">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="desktopCartCount" class="absolute -top-2 -right-2 bg-coral text-putih text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <a href="#" id="desktopLoginBtn" class="bg-coklatTua text-putih px-4 py-1 rounded-full font-semibold hover:bg-opacity-90 transition">Login</a>
                 </div>
 
                 <!-- Language Switcher -->
@@ -97,6 +102,10 @@
                     <button id="mobile-lang-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none">
                         <span class="text-2xl" id="current-flag">🇬🇧</span>
                     </button>
+                    <button id="mobile-cart-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none relative">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <span id="mobileCartCount" class="absolute -top-2 -right-2 bg-coral text-putih text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
                     <button id="mobile-menu-btn" class="text-coklatTua hover:text-coklatMuda focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
@@ -112,6 +121,11 @@
             <a href="#tentang" class="block px-4 py-3 text-coklatTua border-b border-cream" data-en="About Us" data-id="Tentang Kami">About Us</a>
             <a href="#faq" class="block px-4 py-3 text-coklatTua border-b border-cream">FAQ</a>
             <a href="#kontak" class="block px-4 py-3 text-coklatTua" data-en="Contact" data-id="Kontak">Contact</a>
+            <a href="#" id="mobileCartBtnMenu" class="block px-4 py-3 text-coklatTua border-b border-cream relative">
+                <i class="fas fa-shopping-cart mr-2"></i> Keranjang
+                <span id="mobileMenuCartCount" class="absolute right-4 top-3 bg-coral text-putih text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+            </a>
+            <a href="#" id="mobileLoginBtn" class="block px-4 py-3 text-putih bg-coklatTua font-bold">Login</a>
             <div class="border-t border-cream p-4">
                 <div class="flex justify-center space-x-2">
                     <button class="mobile-lang-option flex items-center space-x-2 px-4 py-2 rounded-lg bg-cream hover:bg-coklatMuda hover:text-putih transition" data-lang="en">
@@ -221,132 +235,9 @@
                 <p class="text-gray-600" data-en="High-quality handmade crochet dolls ready to own" data-id="Boneka rajut handmade berkualitas tinggi siap dimiliki">High-quality handmade crochet dolls ready to own</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
-                <!-- Product Card 1 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-100">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/key cover deskripsi.JPG" alt="Key Cover" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Key Cover</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Handmade with premium materials</p>
-                        </div>
-                        <button onclick="openDetailModal('keycover')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition" data-en="View Details" data-id="Lihat Detail">
-                            <span class="btn-text">View Details</span> <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 2 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-200">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/Boneka Anime deskripsi.JPG" alt="Amigurumi Character" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Amigurumi Character</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Beautiful crochet details</p>
-                        </div>
-                        <button onclick="openDetailModal('amigurumi')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 3 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-300">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/gantungan kunci deskripsi.jpg" alt="Keychain" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Keychain</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Cute and adorable accessories</p>
-                        </div>
-                        <button onclick="openDetailModal('gantungan')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-400">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/pouch phone deskripsi.jpeg" alt="Pouch Phone | Phone Bag" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Pouch Phone | Phone Bag</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Handmade with premium materials</p>
-                        </div>
-                        <button onclick="openDetailModal('pouchphone')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 5 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-500">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/demon slayer deskripsi.jpeg" alt="Demon Slayer Amigurumi" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Demon Slayer Amigurumi</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Custom crochet anime characters</p>
-                        </div>
-                        <button onclick="openDetailModal('demonslayer')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 6 -->
-                <div class="product-card bg-cream rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col stagger-item delay-600">
-                    <div class="product-image-container w-full aspect-square bg-gradient-to-br from-putih via-cream/30 to-putih flex items-center justify-center border-b-2 border-coklatMuda/10 neon-border p-4">
-                        <img src="assets/dompet tws deskripsi.jpeg" alt="Dompet TWS Crochet" class="w-full h-full object-contain">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div class="text-center">
-                            <div class="flex justify-center items-center mb-2">
-                                <h3 class="product-title text-xl font-bold text-coklatTua">Dompet TWS Crochet</h3>
-                            </div>
-                            <div class="text-yellow-400 text-sm mb-3">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Cute crochet pouch for TWS</p>
-                        </div>
-                        <button onclick="openDetailModal('dompettws')" class="btn-detail w-full bg-coklatMuda text-putih px-4 py-2 rounded-full font-semibold hover:bg-coklatTua transition">
-                            View Details <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8" id="productGrid">
+                <!-- Produk diisi dinamis dari database -->
+                <div class="col-span-6 text-center py-16 text-gray-400"><i class="fas fa-spinner fa-spin mr-2 text-2xl"></i><p class="mt-2">Memuat produk...</p></div>
             </div>
         </div>
     </section>
@@ -379,66 +270,30 @@
 
             <!-- Kategori -->
             <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 fade-in-left" id="galleryFilters">
-                <button type="button" data-filter="keycover" class="gallery-filter-btn active bg-coklatTua text-putih border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Key Cover</button>
-                <button type="button" data-filter="amigurumi" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Amigurumi Character</button>
-                <button type="button" data-filter="gantungan" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Keychain</button>
-                <button type="button" data-filter="pouchphone" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Pouch Phone</button>
-                <button type="button" data-filter="demonslayer" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Demon Slayer</button>
-                <button type="button" data-filter="dompettws" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">Dompet TWS</button>
+                <button type="button" data-filter="keycover" class="gallery-filter-btn active bg-coklatTua text-putih border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">keycover</button>
+                <button type="button" data-filter="amigurumi" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">amigurumi</button>
+                <button type="button" data-filter="gantungan" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">gantungan</button>
+                <button type="button" data-filter="pouchphone" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">pouchphone</button>
+                <button type="button" data-filter="demonslayer" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">demonslayer</button>
+                <button type="button" data-filter="dompettws" class="gallery-filter-btn bg-putih text-coklatTua border border-coklatTua px-5 py-2 rounded-full font-semibold hover:bg-coklatMuda hover:text-putih hover:border-coklatMuda transition">dompettws</button>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="galleryGrid">
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-100 shadow-sm border border-coklatMuda/20" data-category="keycover">
-                    <img src="assets/key 1.jpeg" alt="Key Cover 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Key Cover 1</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-200 shadow-sm border border-coklatMuda/20" data-category="keycover">
-                    <img src="assets/key 2.jpeg" alt="Key Cover 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Key Cover 2</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-300 shadow-sm border border-coklatMuda/20" data-category="keycover">
-                    <img src="assets/key 3.jpeg" alt="Key Cover 3" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Key Cover 3</div>
+                <!-- Galeri diisi dinamis dari database -->
+                    <img src="assets/key 1.jpeg" alt="keycover" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">keycover</div>
                 </div>
                 <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-400 shadow-sm border border-coklatMuda/20" data-category="amigurumi">
-                    <img src="assets/amigurumi 1.jpeg" alt="Amigurumi Character 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Amigurumi Character 1</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-500 shadow-sm border border-coklatMuda/20" data-category="amigurumi">
-                    <img src="assets/amigurumi 2.jpeg" alt="Amigurumi Character 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Amigurumi Character 2</div>
+                    <img src="assets/amigurumi 1.jpeg" alt="amigurumi" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">amigurumi</div>
                 </div>
                 <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="gantungan">
-                    <img src="assets/gantungan kunci deskripsi.jpg" alt="Keychain" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Keychain</div>
+                    <img src="assets/gantungan kunci deskripsi.jpg" alt="gantungan" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">gantungan</div>
                 </div>
                 <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="pouchphone">
-                    <img src="assets/pouch phone deskripsi.jpeg" alt="Pouch Phone" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Pouch Phone</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-700 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
-                    <img src="assets/demon slayer 1.jpeg" alt="Demon Slayer 1" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Demon Slayer 1</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-800 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
-                    <img src="assets/demon slayer 2.jpeg" alt="Demon Slayer 2" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Demon Slayer 2</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-900 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
-                    <img src="assets/demon slayer 3.jpeg" alt="Demon Slayer 3" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Demon Slayer 3</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1000 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
-                    <img src="assets/demon slayer 4.jpeg" alt="Demon Slayer 4" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Demon Slayer 4</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1100 shadow-sm border border-coklatMuda/20" data-category="demonslayer">
-                    <img src="assets/demon slayer 5.jpeg" alt="Demon Slayer 5" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Demon Slayer 5</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-1200 shadow-sm border border-coklatMuda/20" data-category="dompettws">
-                    <img src="assets/dompet tws deskripsi.jpeg" alt="Dompet TWS Crochet" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">Dompet TWS</div>
+                    <img src="assets/pouch phone deskripsi.jpeg" alt="pouchphone" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
+                    <div class="gallery-title">pouchphone</div>
                 </div>
             </div>
         </div>
@@ -654,8 +509,189 @@
         </div>
     </footer>
 
+    <!-- Auth Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-putih rounded-3xl w-full max-w-md shadow-2xl relative p-8">
+            <button id="closeAuthModal" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="flex mb-6 border-b border-coklatMuda/20" id="authTabsContainer">
+                <button id="tabLogin" class="flex-1 pb-2 font-bold text-coklatTua border-b-2 border-coklatTua">Login</button>
+                <button id="tabRegister" class="flex-1 pb-2 font-bold text-gray-400 hover:text-coklatTua transition border-b-2 border-transparent">Register</button>
+            </div>
+            
+            <form id="authForm" class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Username</label>
+                    <input type="text" id="authUsername" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+                    <input type="password" id="authPassword" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required>
+                </div>
+                <button type="submit" id="authSubmitBtn" class="w-full bg-coklatTua text-putih font-bold py-3 rounded-xl hover:bg-coklatMuda transition mt-2">Login</button>
+                <p id="authMessage" class="text-sm text-center font-semibold mt-2 hidden"></p>
+            </form>
+            
+            <div id="loggedInView" class="hidden flex-col items-center gap-4">
+                <div class="w-16 h-16 bg-coklatMuda text-putih rounded-full flex items-center justify-center text-2xl font-bold">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3 class="text-xl font-bold text-coklatTua text-center" id="welcomeUserText">Welcome, User!</h3>
+                <a href="/admin.html" id="adminPanelBtn" class="hidden w-full bg-coklatTua text-putih font-bold py-3 rounded-xl text-center hover:bg-coklatMuda transition">
+                    👑 Admin Panel
+                </a>
+                <button id="logoutBtn" class="w-full border-2 border-red-400 text-red-400 font-bold py-3 rounded-xl hover:bg-red-400 hover:text-putih transition">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="fixed inset-0 z-[70] hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="cartOverlay"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-putih shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
+            <div class="flex items-center justify-between p-6 border-b border-coklatMuda/20">
+                <h2 class="text-xl font-bold text-coklatTua"><i class="fas fa-shopping-cart mr-2"></i>Keranjang Belanja</h2>
+                <button id="closeCartBtn" class="text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6" id="cartItemsList">
+                <div class="text-center text-gray-400 py-16">
+                    <i class="fas fa-shopping-basket text-5xl mb-4"></i>
+                    <p>Keranjang belanja kosong</p>
+                </div>
+            </div>
+            <div class="border-t border-coklatMuda/20 p-6 bg-cream/50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-bold text-coklatTua text-lg">Total:</span>
+                    <span class="font-bold text-coklatTua text-xl" id="cartTotal">Rp0</span>
+                </div>
+                <button id="checkoutBtn" class="w-full bg-coklatTua text-putih font-bold py-3 rounded-xl hover:bg-coklatMuda transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <i class="fas fa-credit-card mr-2"></i>Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 z-[80] hidden flex items-center justify-center p-4">
+        <div class="bg-putih rounded-3xl w-full max-w-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button id="closeCheckoutModal" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center z-10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-coklatTua mb-6"><i class="fas fa-file-invoice mr-2"></i>Checkout</h2>
+
+                <!-- Order Summary -->
+                <div class="bg-cream rounded-xl p-4 mb-6">
+                    <h3 class="font-bold text-coklatTua mb-3">Ringkasan Pesanan</h3>
+                    <div id="checkoutItemsList" class="space-y-2 text-sm"></div>
+                    <div class="border-t border-coklatMuda/30 mt-3 pt-3 flex justify-between font-bold text-coklatTua">
+                        <span>Total</span>
+                        <span id="checkoutTotal">Rp0</span>
+                    </div>
+                </div>
+
+                <!-- Shipping Form -->
+                <form id="checkoutForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Penerima *</label>
+                        <input type="text" id="custName" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">No. Telepon / WhatsApp *</label>
+                        <input type="text" id="custPhone" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Alamat Lengkap *</label>
+                        <textarea id="custAddress" rows="3" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Email (opsional)</label>
+                        <input type="email" id="custEmail" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Catatan (opsional)</label>
+                        <textarea id="custNotes" rows="2" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua"></textarea>
+                    </div>
+
+                    <!-- Bank Transfer Info -->
+                    <div class="bg-gradient-to-r from-coklatMuda/10 to-coklatTua/10 rounded-xl p-4 border-l-4 border-coklatMuda">
+                        <h4 class="font-bold text-coklatTua mb-2"><i class="fas fa-university mr-2"></i>Transfer Bank</h4>
+                        <p class="text-sm text-gray-700 mb-2">Silakan transfer ke salah satu rekening berikut:</p>
+                        <div class="space-y-1 text-sm">
+                            <p><strong>BCA:</strong> 1234567890 a.n. RAr's Crochet</p>
+                            <p><strong>BRI:</strong> 0987654321 a.n. RAr's Crochet</p>
+                            <p><strong>Dana:</strong> 081929761548 a.n. RAr's Crochet</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="placeOrderBtn" class="w-full bg-coklatTua text-putih font-bold py-3 rounded-xl hover:bg-coklatMuda transition">
+                        <i class="fas fa-paper-plane mr-2"></i>Buat Pesanan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal (Upload Bukti Transfer) -->
+    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 z-[80] hidden flex items-center justify-center p-4">
+        <div class="bg-putih rounded-3xl w-full max-w-md shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button id="closePaymentModal" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center z-10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-coklatTua mb-2"><i class="fas fa-receipt mr-2"></i>Konfirmasi Pembayaran</h2>
+                <p class="text-sm text-gray-500 mb-6">Order #<span id="paymentOrderId"></span> — Total: <span id="paymentOrderTotal" class="font-bold text-coklatTua"></span></p>
+
+                <form id="paymentForm" class="space-y-4" enctype="multipart/form-data">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Bank *</label>
+                        <input type="text" id="payBankName" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" placeholder="Contoh: BCA, BRI, Dana" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Pemilik Rekening *</label>
+                        <input type="text" id="payAccountName" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Upload Bukti Transfer *</label>
+                        <input type="file" id="payProofFile" accept="image/*" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua bg-putih" required>
+                        <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG. Maks 5MB</p>
+                    </div>
+                    <div id="payProofPreview" class="hidden">
+                        <img id="payProofImg" src="" alt="Preview" class="w-full max-h-48 object-contain rounded-lg border border-coklatMuda/30">
+                    </div>
+                    <button type="submit" id="submitPaymentBtn" class="w-full bg-green-600 text-putih font-bold py-3 rounded-xl hover:bg-green-700 transition">
+                        <i class="fas fa-upload mr-2"></i>Kirim Bukti Transfer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order History Modal -->
+    <div id="orderHistoryModal" class="fixed inset-0 bg-black bg-opacity-50 z-[80] hidden flex items-center justify-center p-4">
+        <div class="bg-putih rounded-3xl w-full max-w-3xl shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button id="closeOrderHistory" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center z-10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-coklatTua mb-6"><i class="fas fa-history mr-2"></i>Riwayat Pesanan</h2>
+                <div id="orderHistoryList" class="space-y-4">
+                    <div class="text-center text-gray-400 py-8">
+                        <i class="fas fa-box-open text-4xl mb-3"></i>
+                        <p>Belum ada pesanan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Script External -->
     <script src="js/language.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
