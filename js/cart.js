@@ -210,17 +210,23 @@ function openCheckout() {
 // ─── Submit Checkout / Buat Order ────────────────────────────────────────────
 async function submitCheckout(e) {
     e.preventDefault();
+    console.log("=== CHECKOUT DIMULAI ===");
+    
     const token = localStorage.getItem('token');
     if (!token) {
         showToast('Silakan login terlebih dahulu!', 'warning');
         return;
     }
 
+    console.log("=== VALIDASI FORM ===");
     const customerName = document.getElementById('custName')?.value.trim();
     const customerPhone = document.getElementById('custPhone')?.value.trim();
     const customerAddress = document.getElementById('custAddress')?.value.trim();
     const customerEmail = document.getElementById('custEmail')?.value.trim();
     const notes = document.getElementById('custNotes')?.value.trim();
+
+    console.log("Data customer:", { customerName, customerPhone, customerAddress, customerEmail, notes });
+    console.log("Data cart:", cart);
 
     if (!customerName || !customerPhone || !customerAddress) {
         showToast('Nama, telepon, dan alamat wajib diisi!', 'error');
@@ -239,20 +245,38 @@ async function submitCheckout(e) {
             quantity: item.quantity
         }));
 
-        const res = await fetch(`${API_BASE}/api/orders`, {
+        const payload = {
+            customerName, customerPhone, customerAddress, customerEmail, notes,
+            items,
+            paymentMethod: 'bank_transfer'
+        };
+        console.log("Payload yang akan dikirim:", payload);
+
+        const url = `${API_BASE}/api/orders`;
+        console.log("URL API tujuan:", url);
+        
+        const fetchOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({
-                customerName, customerPhone, customerAddress, customerEmail, notes,
-                items,
-                paymentMethod: 'bank_transfer'
-            })
-        });
+            body: JSON.stringify(payload)
+        };
+        console.log("Request Method:", fetchOptions.method);
+        console.log("Request Headers:", fetchOptions.headers);
+        console.log("Request Body:", fetchOptions.body);
 
-        const data = await res.json();
+        const res = await fetch(url, fetchOptions);
+        
+        console.log("Response HTTP:", res);
+        console.log("Response Status:", res.status);
+        
+        const responseText = await res.text();
+        console.log("Response Text:", responseText);
+        
+        const data = responseText ? JSON.parse(responseText) : {};
+        console.log("Response Body (Parsed):", data);
 
         if (!res.ok) {
             showToast(data.error || 'Gagal membuat pesanan', 'error');
@@ -269,8 +293,11 @@ async function submitCheckout(e) {
         // Tampilkan konfirmasi & arahkan ke upload bukti
         showOrderSuccessPrompt(data.orderId, data.totalAmount);
 
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error("=== ERROR CHECKOUT ===");
+        console.error(error);
+        console.error(error.message);
+        console.error(error.stack);
         showToast('Terjadi kesalahan koneksi. Coba lagi.', 'error');
     } finally {
         if (placeBtn) {

@@ -106,7 +106,7 @@ app.get('/api/profile', verifyToken, (req, res) => {
 // PRODUCTS ROUTES
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// GET semua produk (publik)
+// GET semua produk (publik) - termasuk gallery_images dari tabel product_gallery
 app.get('/api/products', async (req, res) => {
     try {
         const { category } = req.query;
@@ -120,34 +120,57 @@ app.get('/api/products', async (req, res) => {
             query = query.eq('category', category);
         }
 
-        const { data, error } = await query;
-        if (error) return res.status(500).json({ error: 'Database error' });
+        const { data: products, error: prodErr } = await query;
+        if (prodErr) return res.status(500).json({ error: 'Database error' });
 
-        const products = data.map(r => ({
-            ...r,
-            gallery_images: r.gallery_images || [],
-            includes: r.includes || []
+        // Ambil gallery untuk semua produk sekaligus
+        const productIds = products.map(p => p.id);
+        let galleryData = [];
+        if (productIds.length > 0) {
+            const { data: gal } = await supabase
+                .from('product_gallery')
+                .select('*')
+                .in('product_id', productIds);
+            galleryData = gal || [];
+        }
+
+        const productsWithGallery = products.map(p => ({
+            ...p,
+            gallery_images: galleryData.filter(g => g.product_id === p.id).map(g => g.image_url),
+            includes: p.includes || []
         }));
-        res.json(products);
+
+        res.json(productsWithGallery);
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
 });
 
-// GET semua produk (admin: termasuk yang nonaktif)
+// GET semua produk (admin: termasuk yang nonaktif) - termasuk gallery_images dari tabel product_gallery
 app.get('/api/admin/products', verifyToken, requireAdmin, async (req, res) => {
     try {
-        const { data, error } = await supabase
+        const { data: products, error: prodErr } = await supabase
             .from('products')
             .select('*')
             .order('created_at', { ascending: false });
 
-        if (error) return res.status(500).json({ error: 'Database error' });
+        if (prodErr) return res.status(500).json({ error: 'Database error' });
 
-        const products = data.map(r => ({
-            ...r,
-            gallery_images: r.gallery_images || [],
-            includes: r.includes || []
+        const productIds = products.map(p => p.id);
+        let galleryData = [];
+        if (productIds.length > 0) {
+            const { data: gal } = await supabase
+                .from('product_gallery')
+                .select('*')
+                .in('product_id', productIds);
+            galleryData = gal || [];
+        }
+
+        const productsWithGallery = products.map(p => ({
+            ...p,
+            gallery_images: galleryData.filter(g => g.product_id === p.id).map(g => g.image_url),
+            includes: p.includes || []
         }));
-        res.json(products);
+
+        res.json(productsWithGallery);
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
 });
 
@@ -161,9 +184,15 @@ app.get('/api/products/:id', async (req, res) => {
             .single();
 
         if (error || !row) return res.status(404).json({ error: 'Produk tidak ditemukan' });
+
+        const { data: gallery } = await supabase
+            .from('product_gallery')
+            .select('image_url')
+            .eq('product_id', req.params.id);
+
         res.json({
             ...row,
-            gallery_images: row.gallery_images || [],
+            gallery_images: (gallery || []).map(g => g.image_url),
             includes: row.includes || []
         });
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
@@ -172,34 +201,49 @@ app.get('/api/products/:id', async (req, res) => {
 // POST tambah produk baru (admin)
 app.post('/api/products', verifyToken, requireAdmin, async (req, res) => {
     try {
-        const { name, category, description, price, stock, image, gallery_images, includes, active } = req.body;
+        const { name, category, description, price, hpp, weight, stock, image, gallery_images, includes, active } = req.body;
         if (!name || !category) return res.status(400).json({ error: 'Nama dan kategori wajib diisi' });
 
-        const { data, error } = await supabase
+        const { data: newProduct, error: prodErr } = await supabase
             .from('products')
             .insert({
                 name,
                 category,
                 description: description || '',
                 price: price || 0,
+                hpp: hpp || 0,
+                weight: weight || 0,
                 stock: stock || 0,
                 image: image || '',
-                gallery_images: gallery_images || [],
                 includes: includes || [],
                 active: active !== undefined ? active : 1
             })
             .select('id')
             .single();
 
-        if (error) return res.status(500).json({ error: 'Database error' });
-        res.status(201).json({ message: 'Produk berhasil ditambahkan', id: data.id });
+        if (prodErr) return res.status(500).json({ error: 'Database error' });
+
+        const productId = newProduct.id;
+
+        // Insert gallery images ke tabel product_gallery
+        if (Array.isArray(gallery_images) && gallery_images.length > 0) {
+            const galleryInserts = gallery_images.map(url => ({
+                product_id: productId,
+                image_url: url,
+                storage_path: url,
+                created_at: new Date().toISOString()
+            }));
+            await supabase.from('product_gallery').insert(galleryInserts);
+        }
+
+        res.status(201).json({ message: 'Produk berhasil ditambahkan', id: productId });
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
 });
 
 // PUT edit produk (admin)
 app.put('/api/products/:id', verifyToken, requireAdmin, async (req, res) => {
     try {
-        const { name, category, description, price, stock, image, gallery_images, includes, active } = req.body;
+        const { name, category, description, price, hpp, weight, stock, image, gallery_images, includes, active } = req.body;
         if (!name || !category) return res.status(400).json({ error: 'Nama dan kategori wajib diisi' });
 
         const { data, error } = await supabase
@@ -209,9 +253,10 @@ app.put('/api/products/:id', verifyToken, requireAdmin, async (req, res) => {
                 category,
                 description: description || '',
                 price: price || 0,
+                hpp: hpp || 0,
+                weight: weight || 0,
                 stock: stock || 0,
                 image: image || '',
-                gallery_images: gallery_images || [],
                 includes: includes || [],
                 active: active !== undefined ? active : 1
             })
@@ -220,6 +265,20 @@ app.put('/api/products/:id', verifyToken, requireAdmin, async (req, res) => {
 
         if (error) return res.status(500).json({ error: 'Database error' });
         if (!data || data.length === 0) return res.status(404).json({ error: 'Produk tidak ditemukan' });
+
+        // Update gallery: hapus semua yang lama, masukkan yang baru
+        await supabase.from('product_gallery').delete().eq('product_id', req.params.id);
+
+        if (Array.isArray(gallery_images) && gallery_images.length > 0) {
+            const galleryInserts = gallery_images.map(url => ({
+                product_id: req.params.id,
+                image_url: url,
+                storage_path: url,
+                created_at: new Date().toISOString()
+            }));
+            await supabase.from('product_gallery').insert(galleryInserts);
+        }
+
         res.json({ message: 'Produk berhasil diupdate' });
     } catch(e) { res.status(500).json({ error: 'Server error' }); }
 });
@@ -240,7 +299,7 @@ app.delete('/api/products/:id', verifyToken, requireAdmin, async (req, res) => {
 });
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// UPLOAD ROUTE
+// UPLOAD ROUTE (single)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 app.post('/api/upload', verifyToken, requireAdmin, upload.single('image'), (req, res) => {
@@ -252,14 +311,85 @@ app.post('/api/upload', verifyToken, requireAdmin, upload.single('image'), (req,
 });
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// GALLERY ROUTES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// GET gallery images by product ID
+app.get('/api/products/:id/gallery', verifyToken, requireAdmin, async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('product_gallery')
+            .select('id, image_url, storage_path, created_at')
+            .eq('product_id', req.params.id)
+            .order('created_at', { ascending: true });
+        if (error) return res.status(500).json({ error: 'Database error' });
+        res.json(data || []);
+    } catch(e) { res.status(500).json({ error: 'Server error' }); }
+});
+
+// POST upload multiple gallery images
+app.post('/api/products/:id/gallery', verifyToken, requireAdmin, upload.array('images'), async (req, res) => {
+    try {
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ error: 'Tidak ada file yang diupload' });
+        }
+        const productId = req.params.id;
+        const inserts = req.files.map(file => ({
+            product_id: productId,
+            image_url: 'assets/uploads/' + file.filename,
+            storage_path: 'assets/uploads/' + file.filename,
+            created_at: new Date().toISOString()
+        }));
+        const { data, error } = await supabase.from('product_gallery').insert(inserts);
+        if (error) return res.status(500).json({ error: 'Database error' });
+        res.status(201).json({ message: 'Gallery images uploaded', images: data });
+    } catch(e) { res.status(500).json({ error: 'Server error' }); }
+});
+
+// DELETE single gallery image
+app.delete('/api/products/gallery/:galleryId', verifyToken, requireAdmin, async (req, res) => {
+    try {
+        const galleryId = req.params.galleryId;
+        // Ambil record untuk mengetahui storage_path
+        const { data: record, error: fetchErr } = await supabase
+            .from('product_gallery')
+            .select('storage_path')
+            .eq('id', galleryId)
+            .single();
+        if (fetchErr || !record) return res.status(404).json({ error: 'Gallery image not found' });
+
+        // Hapus file dari storage (filesystem lokal)
+        const filePath = path.join(__dirname, '..', record.storage_path);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
+        // Hapus record dari database
+        const { error: delErr } = await supabase
+            .from('product_gallery')
+            .delete()
+            .eq('id', galleryId);
+        if (delErr) return res.status(500).json({ error: 'Database error' });
+
+        res.json({ message: 'Gallery image deleted' });
+    } catch(e) { res.status(500).json({ error: 'Server error' }); }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ORDERS & PAYMENT ROUTES (Fase 3 & Fase 4)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // POST buat order baru (checkout)
 app.post('/api/orders', verifyToken, async (req, res) => {
+    console.log("=== BACKEND: CHECKOUT DIMULAI ===");
+    console.log("URL Supabase:", supabase.supabaseUrl);
+    console.log("Anon Key Terbaca:", !!supabase.supabaseKey);
+    console.log("Payload diterima:", req.body);
+    
     try {
         const { customerName, customerPhone, customerAddress, customerEmail, notes, items, paymentMethod } = req.body;
         if (!customerName || !customerPhone || !customerAddress || !items || !Array.isArray(items) || items.length === 0) {
+            console.log("Validasi gagal: Data tidak lengkap");
             return res.status(400).json({ error: 'Data penerima dan item belanja wajib diisi' });
         }
 
@@ -270,7 +400,13 @@ app.post('/api/orders', verifyToken, async (req, res) => {
             .select('*')
             .in('id', productIds);
 
-        if (prodErr) return res.status(500).json({ error: 'Database error saat mengambil produk' });
+        if (prodErr) {
+            console.error("Error mengambil produk dari Supabase:");
+            console.error("Code:", prodErr.code);
+            console.error("Message:", prodErr.message);
+            console.error("Details:", prodErr.details);
+            return res.status(500).json({ error: 'Database error saat mengambil produk' });
+        }
 
         const productMap = {};
         products.forEach(p => { productMap[p.id] = p; });
@@ -303,6 +439,7 @@ app.post('/api/orders', verifyToken, async (req, res) => {
         }
 
         // Insert order
+        console.log("Mencoba insert order ke Supabase...");
         const { data: orderData, error: orderErr } = await supabase
             .from('orders')
             .insert({
@@ -319,8 +456,15 @@ app.post('/api/orders', verifyToken, async (req, res) => {
             .select('id')
             .single();
 
-        if (orderErr) return res.status(500).json({ error: 'Database error saat membuat order' });
+        if (orderErr) {
+            console.error("Insert order gagal:");
+            console.error("Code:", orderErr.code);
+            console.error("Message:", orderErr.message);
+            console.error("Details:", orderErr.details);
+            return res.status(500).json({ error: 'Database error saat membuat order' });
+        }
         const orderId = orderData.id;
+        console.log("Insert order berhasil! ID:", orderId);
 
         // Insert detail items
         const orderItemsInsert = orderItems.map(item => ({
@@ -350,7 +494,13 @@ app.post('/api/orders', verifyToken, async (req, res) => {
         }
 
         res.status(201).json({ message: 'Order berhasil dibuat!', orderId, totalAmount });
-    } catch(e) { res.status(500).json({ error: 'Server error' }); }
+    } catch(e) { 
+        console.error("=== BACKEND ERROR CHECKOUT ===");
+        console.error(e);
+        console.error(e.message);
+        console.error(e.stack);
+        res.status(500).json({ error: 'Server error' }); 
+    }
 });
 
 // GET riwayat order milik konsumen sendiri
@@ -536,48 +686,92 @@ app.get('/api/admin/stats', verifyToken, requireAdmin, async (req, res) => {
         const stats = {};
 
         // Total consumers
-        const { data: consumers } = await supabase
+        const { count: consumerCount } = await supabase
             .from('users')
             .select('id', { count: 'exact', head: true })
             .eq('role', 'consumer');
-        stats.totalConsumers = consumers || 0;
+        stats.totalConsumers = consumerCount || 0;
 
         // Total products & stock
-        const { data: activeProducts } = await supabase
+        const { data: allProducts } = await supabase
             .from('products')
-            .select('stock')
-            .eq('active', 1);
-        stats.totalProducts = activeProducts ? activeProducts.length : 0;
-        stats.totalStock = activeProducts ? activeProducts.reduce((sum, p) => sum + (p.stock || 0), 0) : 0;
+            .select('*');
+        
+        stats.totalProducts = allProducts ? allProducts.length : 0;
+        stats.totalStock = allProducts ? allProducts.reduce((sum, p) => sum + (p.stock || 0), 0) : 0;
+        
+        // Nilai Persediaan = Sum of (stock * hpp)
+        stats.inventoryValue = allProducts ? allProducts.reduce((sum, p) => sum + ((p.stock || 0) * (p.hpp || 0)), 0) : 0;
+
+        // Low stock products (e.g., stock <= 5)
+        stats.lowStock = allProducts ? allProducts.filter(p => p.stock > 0 && p.stock <= 5).length : 0;
 
         // Out of stock
-        const { data: outOfStockProducts } = await supabase
-            .from('products')
-            .select('id', { count: 'exact', head: true })
-            .eq('stock', 0);
-        stats.outOfStock = outOfStockProducts || 0;
+        stats.outOfStock = allProducts ? allProducts.filter(p => p.stock === 0).length : 0;
 
-        // Total orders & sales (paid + confirmed)
-        const { data: paidOrders } = await supabase
+        // Fetch all order items for paid/completed orders to calculate HPP and Profit
+        // First get the orders
+        const { data: successfulOrders } = await supabase
             .from('orders')
-            .select('total_amount')
-            .in('status', ['paid', 'confirmed']);
-        stats.totalOrders = paidOrders ? paidOrders.length : 0;
-        stats.totalSales = paidOrders ? paidOrders.reduce((sum, o) => sum + (o.total_amount || 0), 0) : 0;
+            .select('id, total_amount, created_at, customer_name, status')
+            .in('status', ['paid', 'confirmed', 'shipped', 'completed']);
+            
+        stats.totalOrders = successfulOrders ? successfulOrders.length : 0;
+        stats.totalSales = successfulOrders ? successfulOrders.reduce((sum, o) => sum + (o.total_amount || 0), 0) : 0;
+        
+        // Default values for HPP and Profit if we can't calculate perfectly
+        let totalHppSold = 0;
+        
+        if (successfulOrders && successfulOrders.length > 0) {
+            const orderIds = successfulOrders.map(o => o.id);
+            const { data: orderItems } = await supabase
+                .from('order_items')
+                .select('product_id, quantity, price')
+                .in('order_id', orderIds);
+                
+            if (orderItems && allProducts) {
+                orderItems.forEach(item => {
+                    const product = allProducts.find(p => p.id === item.product_id);
+                    const itemHpp = product ? (product.hpp || 0) : 0;
+                    totalHppSold += (itemHpp * item.quantity);
+                });
+            }
+        }
+        
+        stats.totalHppSold = totalHppSold;
+        stats.totalProfit = stats.totalSales - totalHppSold;
 
         // Pending orders
-        const { data: pendingOrders } = await supabase
+        const { count: pendingCount } = await supabase
             .from('orders')
             .select('id', { count: 'exact', head: true })
             .eq('status', 'pending');
-        stats.pendingOrders = pendingOrders || 0;
+        stats.pendingOrders = pendingCount || 0;
 
         // Paid orders
-        const { data: paidOnlyOrders } = await supabase
+        const { count: paidCount } = await supabase
             .from('orders')
             .select('id', { count: 'exact', head: true })
             .eq('status', 'paid');
-        stats.paidOrders = paidOnlyOrders || 0;
+        stats.paidOrders = paidCount || 0;
+        
+        // Recent orders (last 5)
+        const { data: recentOrders } = await supabase
+            .from('orders')
+            .select('id, customer_name, total_amount, status, created_at')
+            .order('created_at', { ascending: false })
+            .limit(5);
+        stats.recentOrders = recentOrders || [];
+        
+        // Recent products (last 5)
+        stats.recentProducts = allProducts 
+            ? allProducts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 5)
+            : [];
+            
+        // Low stock products list
+        stats.lowStockProducts = allProducts
+            ? allProducts.filter(p => p.stock <= 5).sort((a, b) => a.stock - b.stock).slice(0, 5)
+            : [];
 
         res.json(stats);
     } catch(e) { res.status(500).json({ error: 'Server error' }); }

@@ -108,80 +108,117 @@
         <!-- ═══ SECTION: DASHBOARD ══════════════════════════════════════════════ -->
         <section id="section-dashboard">
             <!-- Stat Cards -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="card-stat">
+            <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('products')">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-box-open text-blue-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-green-500 font-semibold bg-green-50 px-2 py-1 rounded-full">Aktif</span>
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center"><i class="fas fa-box-open text-blue-600 text-xl"></i></div>
+                        <span class="text-xs text-blue-500 font-semibold bg-blue-50 px-2 py-1 rounded-full">Katalog</span>
                     </div>
                     <div class="text-3xl font-bold text-gray-800" id="statProducts">—</div>
                     <div class="text-sm text-gray-500 mt-1">Total Produk</div>
                 </div>
-                <div class="card-stat">
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('products')">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-layer-group text-green-600 text-xl"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center"><i class="fas fa-layer-group text-green-600 text-xl"></i></div>
                     </div>
                     <div class="text-3xl font-bold text-gray-800" id="statStock">—</div>
                     <div class="text-sm text-gray-500 mt-1">Total Stok</div>
                 </div>
-                <div class="card-stat">
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('orders')">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-users text-purple-600 text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800" id="statConsumers">—</div>
-                    <div class="text-sm text-gray-500 mt-1">Konsumen Terdaftar</div>
-                </div>
-                <div class="card-stat">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-shopping-bag text-orange-600 text-xl"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center"><i class="fas fa-shopping-bag text-orange-600 text-xl"></i></div>
                     </div>
                     <div class="text-3xl font-bold text-gray-800" id="statOrders">—</div>
-                    <div class="text-sm text-gray-500 mt-1">Total Pesanan</div>
+                    <div class="text-sm text-gray-500 mt-1">Total Pesanan Sukses</div>
                 </div>
-                <div class="card-stat">
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('users')">
                     <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center"><i class="fas fa-users text-purple-600 text-xl"></i></div>
                     </div>
-                    <div class="text-3xl font-bold text-gray-800" id="statOutStock">—</div>
-                    <div class="text-sm text-gray-500 mt-1">Stok Habis</div>
+                    <div class="text-3xl font-bold text-gray-800" id="statConsumers">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Total Konsumen</div>
+                </div>
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('orders')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center"><i class="fas fa-wallet text-emerald-600 text-xl"></i></div>
+                        <span class="text-xs text-emerald-500 font-semibold bg-emerald-50 px-2 py-1 rounded-full">Keuangan</span>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold text-gray-800 truncate" id="statSales">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Total Penjualan</div>
+                </div>
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('orders')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center"><i class="fas fa-file-invoice-dollar text-rose-600 text-xl"></i></div>
+                        <span class="text-xs text-rose-500 font-semibold bg-rose-50 px-2 py-1 rounded-full">Biaya</span>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold text-gray-800 truncate" id="statHpp">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Total HPP Penjualan</div>
+                </div>
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('orders')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center"><i class="fas fa-chart-line text-teal-600 text-xl"></i></div>
+                        <span class="text-xs text-teal-500 font-semibold bg-teal-50 px-2 py-1 rounded-full">Profit</span>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold text-gray-800 truncate" id="statProfit">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Total Keuntungan</div>
+                </div>
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('products')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center"><i class="fas fa-boxes text-indigo-600 text-xl"></i></div>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold text-gray-800 truncate" id="statInventory">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Nilai Persediaan</div>
+                </div>
+                <div class="card-stat cursor-pointer hover:ring-2 ring-coklatMuda transition-all" onclick="showSection('products')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center"><i class="fas fa-exclamation-triangle text-red-600 text-xl"></i></div>
+                        <span class="text-xs text-red-500 font-semibold bg-red-50 px-2 py-1 rounded-full">Warning</span>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800" id="statLowStock">—</div>
+                    <div class="text-sm text-gray-500 mt-1">Produk Hampir/Sudah Habis</div>
                 </div>
             </div>
 
-            <!-- Quick Info -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                <h3 class="font-bold text-gray-700 mb-4 flex items-center gap-2">
-                    <i class="fas fa-rocket text-coklatMuda"></i> Fase Pengembangan
-                </h3>
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-sm font-medium text-green-700">Fase 1: Sistem Login & Role (Admin/Konsumen)</span>
-                        <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Selesai</span>
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-2xl shadow-sm p-6 mb-8 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-800 mb-4"><i class="fas fa-bolt text-yellow-400 mr-2"></i>Tindakan Cepat</h3>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="showSection('products'); openProductModal()" class="bg-coklatTua text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-coklatMuda transition flex items-center gap-2"><i class="fas fa-plus"></i> Tambah Produk</button>
+                    <button onclick="showSection('products')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-gray-200 transition flex items-center gap-2"><i class="fas fa-box-open"></i> Kelola Produk</button>
+                    <button onclick="showSection('orders')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-gray-200 transition flex items-center gap-2"><i class="fas fa-shopping-bag"></i> Kelola Pesanan</button>
+                    <button onclick="showSection('users')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-gray-200 transition flex items-center gap-2"><i class="fas fa-users"></i> Kelola Pengguna</button>
+                    <a href="/" target="_blank" class="bg-blue-50 text-blue-600 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-blue-100 transition flex items-center gap-2"><i class="fas fa-external-link-alt"></i> Lihat Website</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Pesanan Terbaru -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                        <h3 class="font-bold text-gray-700"><i class="fas fa-clock mr-2 text-coklatMuda"></i>Pesanan Terbaru</h3>
+                        <button onclick="showSection('orders')" class="text-xs text-blue-500 font-semibold hover:underline">Lihat Semua</button>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-                        <i class="fas fa-spinner fa-spin text-blue-500"></i>
-                        <span class="text-sm font-medium text-blue-700">Fase 2: Database Produk & Panel Admin</span>
-                        <span class="ml-auto text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-semibold">Berjalan</span>
+                    <div class="p-0 overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <tbody id="recentOrdersBody">
+                                <tr><td class="text-center py-6 text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat...</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-sm font-medium text-green-700">Fase 3: Keranjang Belanja & Checkout</span>
-                        <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Selesai</span>
+                </div>
+                
+                <!-- Produk Hampir Habis -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-red-50">
+                        <h3 class="font-bold text-red-700"><i class="fas fa-exclamation-circle mr-2 text-red-500"></i>Produk Hampir Habis</h3>
+                        <button onclick="showSection('products')" class="text-xs text-red-500 font-semibold hover:underline">Lihat Inventori</button>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-sm font-medium text-green-700">Fase 4: Sistem Pembayaran & Konfirmasi TF</span>
-                        <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Selesai</span>
+                    <div class="p-0 overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <tbody id="lowStockProductsBody">
+                                <tr><td class="text-center py-6 text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat...</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -194,25 +231,60 @@
                     <h2 class="text-lg font-bold text-gray-700">Manajemen Produk</h2>
                     <p class="text-sm text-gray-400">Tambah, edit, atau hapus produk</p>
                 </div>
-                <button onclick="openProductModal()" class="bg-coklatTua text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-coklatMuda transition flex items-center gap-2">
+                <button onclick="openProductModal()" class="bg-coklatTua text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-coklatMuda transition flex items-center gap-2 shadow-sm">
                     <i class="fas fa-plus"></i> Tambah Produk
                 </button>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <table class="w-full">
+            <!-- Table Controls -->
+            <div class="bg-white p-4 rounded-t-2xl border-b border-gray-100 flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex-1 min-w-[200px]">
+                    <div class="relative">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="searchProduct" placeholder="Cari nama produk..." class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:bg-white transition" onkeyup="filterProducts()">
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <select id="filterCategory" onchange="filterProducts()" class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                        <option value="">Semua Kategori</option>
+                        <option value="keycover">Key Cover</option>
+                        <option value="amigurumi">Amigurumi</option>
+                        <option value="gantungan">Gantungan Kunci</option>
+                        <option value="pouchphone">Pouch Phone</option>
+                        <option value="demonslayer">Demon Slayer</option>
+                        <option value="dompettws">Dompet TWS</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                    <select id="filterStatus" onchange="filterProducts()" class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                        <option value="">Semua Status</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Nonaktif</option>
+                    </select>
+                    <select id="sortProducts" onchange="filterProducts()" class="px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                        <option value="newest">Terbaru</option>
+                        <option value="price_asc">Harga Terendah</option>
+                        <option value="price_desc">Harga Tertinggi</option>
+                        <option value="stock_asc">Stok Paling Sedikit</option>
+                        <option value="stock_desc">Stok Terbanyak</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-b-2xl shadow-sm border border-gray-100 overflow-x-auto">
+                <table class="w-full min-w-[900px]">
                     <thead class="bg-gray-50 border-b border-gray-100">
                         <tr>
-                            <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Produk</th>
-                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Kategori</th>
-                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Harga</th>
-                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Stok</th>
-                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Aksi</th>
+                            <th class="text-left px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Produk & Kategori</th>
+                            <th class="text-right px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">HPP</th>
+                            <th class="text-right px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Harga Jual</th>
+                            <th class="text-right px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Profit / Margin</th>
+                            <th class="text-center px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Stok</th>
+                            <th class="text-center px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="text-center px-4 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="productsTableBody">
-                        <tr><td colspan="6" class="text-center py-12 text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat produk...</td></tr>
+                        <tr><td colspan="7" class="text-center py-12 text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat produk...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -295,58 +367,119 @@
 
         <form id="productForm" class="space-y-4">
             <input type="hidden" id="editProductId">
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Produk *</label>
-                    <input type="text" id="pName" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm" required>
+            
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
+                <h4 class="font-bold text-sm text-gray-700 border-b pb-2"><i class="fas fa-info-circle mr-1"></i> Informasi Dasar</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Produk *</label>
+                        <input type="text" id="pName" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:bg-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Kategori *</label>
+                        <select id="pCategory" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:bg-white" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="keycover">Key Cover</option>
+                            <option value="amigurumi">Amigurumi</option>
+                            <option value="gantungan">Gantungan Kunci</option>
+                            <option value="pouchphone">Pouch Phone</option>
+                            <option value="demonslayer">Demon Slayer</option>
+                            <option value="dompettws">Dompet TWS</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Kategori *</label>
-                    <select id="pCategory" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white" required>
-                        <option value="">Pilih Kategori</option>
-                        <option value="keycover">Key Cover</option>
-                        <option value="amigurumi">Amigurumi</option>
-                        <option value="gantungan">Gantungan Kunci</option>
-                        <option value="pouchphone">Pouch Phone</option>
-                        <option value="demonslayer">Demon Slayer</option>
-                        <option value="dompettws">Dompet TWS</option>
-                        <option value="lainnya">Lainnya</option>
-                    </select>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Deskripsi</label>
+                    <textarea id="pDescription" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm resize-none focus:bg-white"></textarea>
                 </div>
             </div>
 
+            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 space-y-4">
+                <h4 class="font-bold text-sm text-emerald-800 border-b border-emerald-200 pb-2"><i class="fas fa-tag mr-1"></i> Harga & Finansial</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-emerald-800 mb-1">Harga Pokok Produksi (HPP) (Rp)</label>
+                        <input type="number" id="pHpp" class="w-full px-4 py-2.5 border border-emerald-200 rounded-xl text-sm bg-white focus:ring-2 ring-emerald-200" min="0" placeholder="0" oninput="calculateProfit()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-emerald-800 mb-1">Harga Jual (Rp) *</label>
+                        <input type="number" id="pPrice" class="w-full px-4 py-2.5 border border-emerald-200 rounded-xl text-sm bg-white focus:ring-2 ring-emerald-200" min="0" placeholder="0" required oninput="calculateProfit()">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100">
+                        <span class="text-xs text-gray-500 block mb-1">Estimasi Profit</span>
+                        <div class="font-bold text-emerald-600" id="calcProfit">Rp 0</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100">
+                        <span class="text-xs text-gray-500 block mb-1">Margin (%)</span>
+                        <div class="font-bold text-emerald-600" id="calcMargin">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
+                <h4 class="font-bold text-sm text-gray-700 border-b pb-2"><i class="fas fa-box mr-1"></i> Inventori & Pengiriman</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Stok *</label>
+                        <input type="number" id="pStock" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white" min="0" placeholder="0" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Berat Produk (Gram)</label>
+                        <input type="number" id="pWeight" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white" min="0" placeholder="Misal: 250">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ GAMBAR UTAMA ═══ -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Deskripsi</label>
-                <textarea id="pDescription" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm resize-none"></textarea>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Harga (Rp)</label>
-                    <input type="number" id="pPrice" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm" min="0" placeholder="0">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Gambar Utama</label>
+                <div id="mainImageArea" class="relative mb-2">
+                    <div id="mainImagePreview" class="hidden">
+                        <img id="mainImagePreviewImg" src="" alt="Preview" class="w-28 h-28 object-cover rounded-xl border-2 border-coklatMuda shadow-md">
+                        <button type="button" id="removeMainImageBtn" onclick="removeMainImage()" class="absolute -top-2 -right-2 w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 transition shadow-lg z-10">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Stok</label>
-                    <input type="number" id="pStock" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm" min="0" placeholder="0">
-                </div>
-            </div>
-
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Gambar Utama</label>
                 <div class="flex items-center space-x-2">
                     <input type="file" id="pImageFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-coklatMuda file:text-putih hover:file:bg-coklatTua cursor-pointer">
                     <input type="hidden" id="pImage">
                 </div>
-                <p id="pImagePreview" class="text-xs text-gray-500 mt-1 truncate"></p>
-                <p class="text-xs text-gray-400 mt-1">Pilih dari galeri/gadget Anda. (Maks 5MB)</p>
+                <p class="text-xs text-gray-400 mt-1">Pilih foto utama produk (Maks 5MB). Jika dihapus, foto galeri pertama akan jadi gambar utama.</p>
             </div>
 
+            <!-- ═══ GALERI FOTO PRODUK ═══ -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Foto Galeri Tambahan</label>
-                <input type="file" id="pGalleryFiles" accept="image/*" multiple class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-coklatMuda file:text-putih hover:file:bg-coklatTua cursor-pointer">
-                <input type="hidden" id="pGallery">
-                <p id="pGalleryPreview" class="text-xs text-gray-500 mt-1 truncate"></p>
-                <p class="text-xs text-gray-400 mt-1">Bisa pilih lebih dari satu foto sekaligus dari galeri Anda.</p>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Galeri Foto Produk</label>
+                
+                <!-- Galeri yang sudah ada (thumbnail + tombol hapus) -->
+                <div id="existingGalleryContainer" class="grid grid-cols-3 sm:grid-cols-4 gap-3 mb-3">
+                    <p id="galleryEmptyMsg" class="col-span-full text-xs text-gray-400 italic">Belum ada foto galeri.</p>
+                </div>
+                
+                <!-- Upload Progress Bar -->
+                <div id="galleryUploadProgress" class="hidden mb-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fas fa-cloud-upload-alt text-coklatTua text-sm"></i>
+                        <span id="galleryProgressText" class="text-xs font-semibold text-gray-600">Mengupload 0/0...</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-full h-2.5 overflow-hidden">
+                        <div id="galleryProgressBar" class="bg-gradient-to-r from-coklatMuda to-coklatTua h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Preview foto baru yang dipilih (sebelum upload) -->
+                <div id="galleryNewPreview" class="grid grid-cols-3 sm:grid-cols-4 gap-3 mb-3"></div>
+
+                <!-- Tombol tambah foto -->
+                <label class="inline-flex items-center gap-2 px-5 py-2.5 bg-coklatMuda text-white rounded-xl cursor-pointer hover:bg-coklatTua transition text-sm font-bold shadow-sm hover:shadow-md">
+                    <i class="fas fa-plus-circle"></i> Tambah Foto Galeri
+                    <input type="file" id="pGalleryFiles" accept="image/*" multiple class="hidden">
+                </label>
+                <p class="text-xs text-gray-400 mt-2">Pilih satu atau beberapa foto sekaligus. Foto lama tidak akan terhapus saat upload foto baru.</p>
             </div>
 
             <div>
@@ -379,6 +512,26 @@
         <div class="flex gap-3">
             <button onclick="closeDeleteModal()" class="flex-1 border-2 border-gray-200 text-gray-600 font-bold py-3 rounded-xl hover:bg-gray-50 transition text-sm">Batal</button>
             <button onclick="confirmDelete()" class="flex-1 bg-red-500 text-white font-bold py-3 rounded-xl hover:bg-red-600 transition text-sm">Ya, Hapus</button>
+        </div>
+    </div>
+</div>
+
+<!-- ─── MODAL BUKTI PEMBAYARAN ──────────────────────────────────────────────── -->
+<div id="paymentProofModal" class="modal-bg fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <div class="flex items-center justify-between p-6 border-b border-gray-100">
+            <h3 class="text-xl font-bold text-gray-800">Bukti Transfer</h3>
+            <button onclick="closePaymentProofModal()" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
+                <i class="fas fa-times text-gray-500"></i>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 flex justify-center items-center bg-gray-50">
+            <img id="paymentProofImage" src="" alt="Bukti Transfer" class="max-w-full h-auto rounded-xl shadow-md border border-gray-200">
+        </div>
+        <div class="p-6 border-t border-gray-100 flex justify-end">
+            <a id="downloadPaymentProofBtn" href="#" download="Bukti_Transfer" class="bg-coklatMuda text-white px-6 py-2 rounded-xl font-bold hover:bg-coklatTua transition flex items-center gap-2">
+                <i class="fas fa-download"></i> Unduh Gambar
+            </a>
         </div>
     </div>
 </div>

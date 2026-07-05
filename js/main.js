@@ -2,7 +2,7 @@
 
 // Typing Animation Effect with Loop
 const typingText = document.getElementById('typing-text');
-const text = 'RAr\'s Crochet';
+const text = 'RAr\'s Crochet.';
 let index = 0;
 let isDeleting = false;
 
@@ -97,11 +97,20 @@ async function loadProductsFromAPI() {
         renderProductGrid(products);
         renderGallery(products);
 
-    } catch(e) {
-        console.warn('Tidak bisa terhubung ke API. Menggunakan data lokal.', e);
-        // Fallback: data hardcoded minimal agar halaman tidak kosong
-        renderProductGridFallback();
+} catch(e) {
+    console.warn('Tidak bisa terhubung ke API. Menggunakan data lokal.', e);
+    // Fallback: data hardcoded minimal agar halaman tidak kosong
+    renderProductGridFallback();
+
+    // Setup static gallery filter for fallback items
+    attachGalleryFilterListeners();
+    // Activate first filter button if exists
+    const firstBtn = document.querySelector('.gallery-filter-btn');
+    if (firstBtn) {
+        setActiveGalleryFilter(firstBtn);
+        filterGallery(firstBtn.dataset.filter);
     }
+}
 }
 
 function renderProductGrid(products) {
@@ -228,30 +237,34 @@ function openDetailModal(productId) {
     `).join('');
 
     modalContent.innerHTML = `
-        <div class="md:w-1/2 bg-gradient-to-br from-putih via-cream/40 to-putih flex items-center justify-center p-4 md:p-6 md:rounded-l-3xl">
-            <img src="${data.image}" alt="${title}" class="w-full max-h-[420px] md:max-h-[560px] object-contain rounded-2xl">
+        <div class="w-full md:w-1/2 bg-gradient-to-br from-putih via-cream/40 to-putih flex items-center justify-center p-4 md:p-6 md:rounded-l-3xl shrink-0 h-64 md:h-auto overflow-hidden">
+            <img src="${data.image}" alt="${title}" class="w-full h-full max-h-[220px] md:max-h-full object-contain rounded-2xl">
         </div>
-        <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-            <div class="bg-orange-100 text-coklatTua px-3 py-1 rounded-full text-xs font-bold inline-block mb-4 w-max">HANDMADE</div>
-            <h3 class="text-3xl font-bold text-coklatTua mb-2">${title}</h3>
-            <p class="text-coklatTua font-bold text-lg mb-4">${formatRupiah(data.price || 0)}</p>
+        <div class="w-full md:w-1/2 p-6 md:p-10 flex flex-col flex-grow min-w-0 overflow-hidden">
+            <div class="shrink-0">
+                <div class="bg-orange-100 text-coklatTua px-3 py-1 rounded-full text-xs font-bold inline-block mb-3 w-max">HANDMADE</div>
+                <h3 class="text-2xl md:text-3xl font-bold text-coklatTua mb-2 break-words leading-tight">${title}</h3>
+                <p class="text-coklatTua font-bold text-lg mb-4">${formatRupiah(data.price || 0)}</p>
+            </div>
 
-            <h4 class="font-bold text-gray-800 mb-2">Deskripsi Produk:</h4>
-            <p class="text-gray-600 mb-6">${description}</p>
+            <div class="flex-grow overflow-y-auto pr-1 md:pr-3 mb-6 min-h-0">
+                <h4 class="font-bold text-gray-800 mb-2">Deskripsi Produk:</h4>
+                <p class="text-gray-600 mb-6 break-words whitespace-pre-line text-sm md:text-base leading-relaxed">${description}</p>
 
-            <h4 class="font-bold text-gray-800 mb-3">Detail Produk:</h4>
-            <ul class="mb-8">
-                ${includesHtml}
-            </ul>
+                <h4 class="font-bold text-gray-800 mb-3">Detail Produk:</h4>
+                <ul class="mb-2">
+                    ${includesHtml}
+                </ul>
+            </div>
 
-            <div class="flex flex-col sm:flex-row gap-3">
-                <button onclick="handleAddToCartCard(${data.id}); closeModal();" class="bg-coklatTua text-putih px-5 py-3 rounded-xl font-bold text-center hover:bg-coklatMuda transition flex-grow shadow-md flex items-center justify-center gap-2" ${data.stock <= 0 ? 'disabled' : ''}>
+            <div class="shrink-0 flex flex-col sm:flex-row gap-3 pt-2 bg-putih border-t border-gray-100 md:border-t-0">
+                <button onclick="handleAddToCartCard(${data.id}); closeModal();" class="bg-coklatTua text-putih px-4 py-3 rounded-xl font-bold text-center hover:bg-coklatMuda transition flex-grow shadow-md flex items-center justify-center gap-2" ${data.stock <= 0 ? 'disabled' : ''}>
                     <i class="fas fa-shopping-cart"></i> <span>+ Keranjang</span>
                 </button>
-                <a href="https://wa.me/6281929761548?text=${encodeURIComponent(whatsappText)}" target="_blank" class="bg-green-500 text-putih px-5 py-3 rounded-xl font-bold text-center hover:bg-green-600 transition flex-grow shadow-md flex items-center justify-center gap-2">
+                <a href="https://wa.me/6281929761548?text=${encodeURIComponent(whatsappText)}" target="_blank" class="bg-green-500 text-putih px-4 py-3 rounded-xl font-bold text-center hover:bg-green-600 transition flex-grow shadow-md flex items-center justify-center gap-2">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="https://www.instagram.com/rarscrochet?igsh=ODVreHV0bzhkcnN6" target="_blank" class="bg-pink-500 text-putih px-5 py-3 rounded-xl font-bold text-center hover:bg-pink-600 transition flex-grow shadow-md flex items-center justify-center gap-2">
+                <a href="https://www.instagram.com/rarscrochet?igsh=ODVreHV0bzhkcnN6" target="_blank" class="bg-pink-500 text-putih px-4 py-3 rounded-xl font-bold text-center hover:bg-pink-600 transition flex-grow shadow-md flex items-center justify-center gap-2">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
             </div>
@@ -281,7 +294,8 @@ const galleryItems = document.querySelectorAll('.gallery-item');
 let galleryFilterTimer;
 
 function setActiveGalleryFilter(activeButton) {
-    galleryFilterButtons.forEach(button => {
+    const buttons = document.querySelectorAll('.gallery-filter-btn');
+    buttons.forEach(button => {
         button.classList.remove('active', 'bg-coklatTua', 'text-putih');
         button.classList.add('bg-putih', 'text-coklatTua');
     });
@@ -296,7 +310,8 @@ function filterGallery(category, withAnimation = false) {
     const applyFilter = () => {
         let revealIndex = 0;
 
-        galleryItems.forEach(item => {
+        const currentItems = galleryGrid ? galleryGrid.querySelectorAll('.gallery-item') : [];
+        currentItems.forEach(item => {
             const isVisible = item.dataset.category === category;
 
             item.classList.remove('gallery-reveal');
@@ -323,7 +338,16 @@ function filterGallery(category, withAnimation = false) {
     }
 }
 
-// Gallery filter buttons akan di-attach ulang saat renderGallery dipanggil
+function attachGalleryFilterListeners() {
+    const buttons = document.querySelectorAll('.gallery-filter-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+            setActiveGalleryFilter(btn);
+            filterGallery(btn.dataset.filter, true);
+        });
+    });
+}
 
 // Gallery Preview Modal
 const galleryPreviewModal = document.getElementById('galleryPreviewModal');

@@ -244,12 +244,12 @@
 
     <!-- Modal Detail Produk -->
     <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4">
-        <div class="bg-putih rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center">
+        <div class="bg-putih rounded-3xl max-w-4xl lg:max-w-5xl xl:max-w-6xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-coklatTua bg-cream rounded-full w-10 h-10 flex items-center justify-center z-50">
                 <i class="fas fa-times text-xl"></i>
             </button>
 
-            <div class="flex flex-col md:flex-row" id="modalContent">
+            <div class="flex flex-col md:flex-row flex-grow overflow-hidden" id="modalContent">
                 <!-- Content will be injected by JS -->
             </div>
         </div>
@@ -280,21 +280,6 @@
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="galleryGrid">
                 <!-- Galeri diisi dinamis dari database -->
-                    <img src="assets/key 1.jpeg" alt="keycover" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">keycover</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-400 shadow-sm border border-coklatMuda/20" data-category="amigurumi">
-                    <img src="assets/amigurumi 1.jpeg" alt="amigurumi" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">amigurumi</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="gantungan">
-                    <img src="assets/gantungan kunci deskripsi.jpg" alt="gantungan" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">gantungan</div>
-                </div>
-                <div class="gallery-item aspect-square bg-putih rounded-xl overflow-hidden cursor-pointer group scale-up delay-600 shadow-sm border border-coklatMuda/20" data-category="pouchphone">
-                    <img src="assets/pouch phone deskripsi.jpeg" alt="pouchphone" class="w-full h-full object-contain p-3 group-hover:scale-110 transition duration-500">
-                    <div class="gallery-title">pouchphone</div>
-                </div>
             </div>
         </div>
     </section>
@@ -621,9 +606,7 @@
                         <h4 class="font-bold text-coklatTua mb-2"><i class="fas fa-university mr-2"></i>Transfer Bank</h4>
                         <p class="text-sm text-gray-700 mb-2">Silakan transfer ke salah satu rekening berikut:</p>
                         <div class="space-y-1 text-sm">
-                            <p><strong>BCA:</strong> 1234567890 a.n. RAr's Crochet</p>
-                            <p><strong>BRI:</strong> 0987654321 a.n. RAr's Crochet</p>
-                            <p><strong>Dana:</strong> 081929761548 a.n. RAr's Crochet</p>
+<p><strong>BNI:</strong> 1439359894 a.n. Rasyid Akhyar</p>
                         </div>
                     </div>
 
@@ -648,7 +631,7 @@
                 <form id="paymentForm" class="space-y-4" enctype="multipart/form-data">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Bank *</label>
-                        <input type="text" id="payBankName" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" placeholder="Contoh: BCA, BRI, Dana" required>
+                        <input type="text" id="payBankName" class="w-full px-4 py-2 border border-coklatMuda/50 rounded-lg focus:outline-none focus:border-coklatTua" placeholder="Contoh: BNI" required>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Pemilik Rekening *</label>
